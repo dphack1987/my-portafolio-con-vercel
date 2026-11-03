@@ -10,7 +10,8 @@ const es = {
     projects: "Proyectos",
     contact: "Contacto",
     skills: "Habilidades",
-    awards: "Premios"
+    awards: "Premios",
+    education: "Educación"
   },
   hero: {
     title: "David Parra",
@@ -35,6 +36,14 @@ const es = {
     technical: "Habilidades Técnicas",
     security: "Herramientas de Seguridad",
     certifications: "Certificaciones"
+  },
+  education: {
+    title: "Educación y Certificaciones",
+    subtitle: "Formación académica y certificaciones profesionales en ciberseguridad y desarrollo",
+    viewCertificate: "Ver Certificado",
+    institution: "Institución",
+    year: "Año",
+    credentials: "Credenciales"
   },
   projects: {
     title: "Proyectos Destacados",
@@ -92,7 +101,8 @@ const en: {
     projects: "Projects",
     contact: "Contact",
     skills: "Skills",
-    awards: "Awards"
+    awards: "Awards",
+    education: "Education"
   },
   hero: {
     title: "David Parra",
@@ -117,6 +127,14 @@ const en: {
     technical: "Technical Skills",
     security: "Security Tools",
     certifications: "Certifications"
+  },
+  education: {
+    title: "Education & Certifications",
+    subtitle: "Academic background and professional certifications in cybersecurity and development",
+    viewCertificate: "View Certificate",
+    institution: "Institution",
+    year: "Year",
+    credentials: "Credentials"
   },
   projects: {
     title: "Featured Projects",

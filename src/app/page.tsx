@@ -5,6 +5,7 @@ import Link from "next/link";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
+import Education from "@/components/Education";
 import Counter from "@/components/Counter";
 import Typewriter from "@/components/Typewriter";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -290,6 +291,7 @@ export default function Home() {
         </div>
       </section>
 
+      <Education />
       <Skills />
       <Projects />
       <Contact />

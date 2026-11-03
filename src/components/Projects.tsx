@@ -250,7 +250,7 @@ export default function Projects() {
             aria-hidden="true"
             className="pointer-events-none absolute -top-10 right-0 select-none font-display text-[9rem] leading-none text-white/[0.04] md:text-[12rem]"
           >
-            04
+            06
           </span>
           <p className="eyebrow">{"// "}{t('nav.projects')}</p>
           <h2 className="display-hover relative mt-3 font-display text-5xl uppercase leading-none tracking-tight text-white md:text-7xl">

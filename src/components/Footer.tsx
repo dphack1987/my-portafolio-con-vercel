@@ -39,7 +39,7 @@ export default function Footer() {
             filandialamano.com
           </a>
         </p>
-        <p className="mb-4">
+        <p className="mb-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
           <a
             href="https://github.com/dphack1987"
             target="_blank"
@@ -47,6 +47,15 @@ export default function Footer() {
             className="font-mono text-sm text-[#ffd400] transition-colors hover:text-white"
           >
             {t('footer.github')}
+          </a>
+          <span className="text-zinc-700">/</span>
+          <a
+            href="https://www.linkedin.com/in/david-parra-4b5a27313"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-sm text-[#ffd400] transition-colors hover:text-white"
+          >
+            LinkedIn
           </a>
         </p>
         <p className="font-mono text-xs uppercase tracking-widest text-zinc-600">

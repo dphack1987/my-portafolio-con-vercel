@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { hash: "#awards", key: "nav.awards" },
   { hash: "#projects", key: "nav.projects" },
   { hash: "#skills", key: "nav.skills" },
+  { hash: "#education", key: "nav.education" },
 ] as const;
 
 export default function Navbar() {
@@ -117,6 +118,18 @@ export default function Navbar() {
               {languageButton('es')}
               {languageButton('en')}
             </div>
+
+            <Button
+              asChild
+              variant="ghost"
+              size="sm"
+              aria-label="LinkedIn"
+              className="ml-2 text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-[#ffd400] focus:outline-none focus:ring-2 focus:ring-[#ffd400] focus:ring-offset-2 focus:ring-offset-black"
+            >
+              <a href="https://www.linkedin.com/in/david-parra-4b5a27313" target="_blank" rel="noopener noreferrer">
+                LinkedIn
+              </a>
+            </Button>
 
             <Button
               variant="ghost"
