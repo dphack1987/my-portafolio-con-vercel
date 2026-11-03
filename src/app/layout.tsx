@@ -27,6 +27,62 @@ const jetbrains = JetBrains_Mono({
 
 const siteUrl = "https://my-portafolio-con-vercel.vercel.app";
 
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "David Parra",
+  jobTitle: "Enterprise Security Architect & Full-Stack Developer",
+  email: "parraprietodavid87@gmail.com",
+  telephone: "+57 302 604 7592",
+  url: siteUrl,
+  sameAs: [
+    "https://github.com/dphack1987",
+    "https://www.linkedin.com/in/david-parra-4b5a27313",
+    "https://www.salentoalamano.com"
+  ],
+  alumniOf: [
+    {
+      "@type": "EducationalOrganization",
+      name: "University of Colorado",
+      url: "https://www.colorado.edu"
+    },
+    {
+      "@type": "EducationalOrganization",
+      name: "NYU Tandon School of Engineering",
+      url: "https://engineering.nyu.edu"
+    }
+  ],
+  knowsAbout: [
+    "Enterprise Security Architecture",
+    "Full-Stack Development",
+    "Cybersecurity",
+    "Docker",
+    "Kubernetes",
+    "ELK Stack",
+    "Machine Learning",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Threat Intelligence",
+    "SIEM"
+  ],
+  award: [
+    {
+      "@type": "Award",
+      name: "World Summit Awards 2026 Nominee",
+      description: "Nominated in Business & Commerce category for Colombia for salentoalamano.com",
+      awarder: "World Summit Awards"
+    }
+  ],
+  worksFor: [
+    {
+      "@type": "Organization",
+      name: "Salento a la Mano",
+      url: "https://www.salentoalamano.com"
+    }
+  ]
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "David Parra - WSA 2026 Nominee | Enterprise Security Architect",
@@ -76,6 +132,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className="scroll-smooth dark">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personSchema),
+          }}
+        />
+      </head>
       <body className={`${inter.variable} ${anton.variable} ${jetbrains.variable} font-sans`}>
         <LanguageProvider>
           <RevealObserver />

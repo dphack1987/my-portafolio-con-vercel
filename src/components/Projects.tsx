@@ -51,6 +51,8 @@ const getProjects = (language: 'en' | 'es'): Project[] => [
       ? ["🏆 Joya del Portafolio", "WSA 2026", "Turismo Digital", "PWA"]
       : ["🏆 Portfolio Gem", "WSA 2026", "Digital Tourism", "PWA"],
     link: "https://www.salentoalamano.com",
+    link2: "/projects/salento-a-la-mano",
+    link2Label: language === 'es' ? "Ver Caso de Estudio" : "View Case Study",
     award: true,
     featured: true,
     image: "/media/logo-salentoalamano.com.webp",
