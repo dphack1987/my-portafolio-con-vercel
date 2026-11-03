@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>David Parra - CV</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: #18181b;
+    background: #fff;
+    font-size: 10.5px;
+    line-height: 1.5;
+  }
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; position: relative; }
+
+  /* Header */
+  .header {
+    background: #0a0a0c;
+    color: #fff;
+    padding: 30px 36px 26px;
+    border-bottom: 5px solid #ffd400;
+    position: relative;
+  }
+  .header .accent {
+    position: absolute; top: 0; right: 36px;
+    width: 64px; height: 100%;
+    background: repeating-linear-gradient(90deg, #ffd400 0 4px, transparent 4px 12px);
+    opacity: .25;
+  }
+  .header h1 {
+    font-size: 40px; font-weight: 900; text-transform: uppercase;
+    letter-spacing: -1px; line-height: 1;
+  }
+  .header h1 span { color: #ffd400; }
+  .header .role {
+    margin-top: 8px; font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 3px; color: #ffd400;
+  }
+  .header .contact {
+    margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px 22px;
+    font-size: 10px; color: #d4d4d8; font-family: Consolas, monospace;
+  }
+  .header .contact b { color: #fff; }
+  .badge-wsa {
+    position: absolute; top: 26px; right: 36px;
+    background: #ffd400; color: #000; font-weight: 900;
+    font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px;
+    padding: 8px 12px; text-align: center; line-height: 1.3;
+    max-width: 150px;
+  }
+
+  /* Body */
+  .body { display: flex; }
+  .col-main { flex: 1.9; padding: 24px 30px 30px 36px; }
+  .col-side {
+    flex: 1.15; background: #0f0f12; color: #e4e4e7;
+    padding: 24px 30px 30px; border-left: 4px solid #ffd400;
+  }
+
+  .section { margin-bottom: 18px; }
+  .section-title {
+    font-size: 12px; font-weight: 900; text-transform: uppercase;
+    letter-spacing: 3px; color: #0a0a0c;
+    border-bottom: 2px solid #ffd400; padding-bottom: 5px; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::before {
+    content: ""; width: 10px; height: 10px; background: #ffd400; display: inline-block;
+  }
+  .section-title.on-dark { color: #fff; }
+  .section-title.on-dark::before { background: #ffd400; }
+
+  .profile { font-size: 10.5px; color: #3f3f46; text-align: justify; }
+  .profile b { color: #000; }
+
+  /* Projects */
+  .project { margin-bottom: 11px; page-break-inside: avoid; }
+  .project-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .project-title { font-size: 11.5px; font-weight: 900; text-transform: uppercase; letter-spacing: .5px; }
+  .project-tag {
+    font-size: 8px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px;
+    background: #ffd400; color: #000; padding: 2px 6px; white-space: nowrap;
+  }
+  .project-tag.gray { background: #e4e4e7; color: #52525b; }
+  .project-desc { font-size: 9.5px; color: #52525b; margin-top: 3px; }
+  .project-tech { font-family: Consolas, monospace; font-size: 8.5px; color: #000; margin-top: 3px; font-weight: 700; }
+
+  /* Sidebar */
+  .side-block { margin-bottom: 16px; }
+  .side-label {
+    font-size: 9px; font-weight: 900; text-transform: uppercase;
+    letter-spacing: 2.5px; color: #ffd400; margin-bottom: 7px;
+    border-bottom: 1px solid #3f3f46; padding-bottom: 4px;
+  }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 4px; }
+  .chip {
+    border: 1px solid #52525b; padding: 2px 6px; font-size: 8.5px;
+    font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: #e4e4e7;
+    font-family: Consolas, monospace;
+  }
+  .chip.gold { border-color: #ffd400; color: #ffd400; }
+  .cert { margin-bottom: 8px; }
+  .cert .name { font-size: 10px; font-weight: 800; color: #fff; }
+  .cert .meta { font-size: 8.5px; color: #a1a1aa; font-family: Consolas, monospace; text-transform: uppercase; letter-spacing: .5px; }
+  .award-box {
+    background: #ffd400; color: #000; padding: 10px; font-size: 9px;
+    font-weight: 700; line-height: 1.45;
+  }
+  .award-box strong { display: block; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 4px; }
+  .side-contact div { font-size: 9.5px; margin-bottom: 4px; font-family: Consolas, monospace; color: #e4e4e7; word-break: break-all; }
+  .side-contact span { color: #ffd400; font-weight: 700; }
+
+  /* Footer */
+  .footer {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: #0a0a0c; color: #a1a1aa;
+    padding: 8px 36px; font-size: 8.5px; text-transform: uppercase;
+    letter-spacing: 2px; display: flex; justify-content: space-between;
+    border-top: 3px solid #ffd400;
+  }
+  .footer b { color: #ffd400; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="accent"></div>
+    <div class="badge-wsa">Nominado<br />WSA 2026</div>
+    <h1>David <span>Parra</span></h1>
+    <div class="role">Arquitecto de Seguridad Enterprise · Full-Stack</div>
+    <div class="contact">
+      <span><b>EMAIL</b> parraprietodavid87@gmail.com</span>
+      <span><b>TEL</b> +57 302 604 7592</span>
+      <span><b>GITHUB</b> github.com/dphack1987</span>
+      <span><b>WEB</b> salentoalamano.com</span>
+    </div>
+  </div>
+
+  <div class="body">
+    <!-- Columna principal -->
+    <div class="col-main">
+      <div class="section">
+        <div class="section-title">Perfil Profesional</div>
+        <p class="profile">
+          Arquitecto de Seguridad Enterprise y desarrollador Full-Stack con reconocimiento
+          internacional. <b>Nominado al World Summit Awards 2026</b> (categoría Negocios y
+          Comercio de Colombia, 24ª edición) por <b>salentoalamano.com</b>, la solución digital
+          más innovadora del sector. Experto en arquitecturas enterprise de 7 capas, ELK Stack,
+          Docker/Kubernetes, Machine Learning aplicado a seguridad y desarrollo de frameworks de
+          evaluación ofensiva. Experiencia comprobada construyendo plataformas escalables con
+          impacto real en seguridad y turismo digital.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Proyectos Destacados</div>
+
+        <div class="project">
+          <div class="project-head">
+            <span class="project-title">Salento a la Mano</span>
+            <span class="project-tag">★ WSA 2026</span>
+          </div>
+          <div class="project-desc">
+            Plataforma de turismo digital enterprise nominada al WSA 2026. 70+ negocios
+            verificados, reservas y pagos integrados, mapa interactivo, SEO orgánico top 10,
+            bilingüe ES/EN y pipeline CI/CD.
+          </div>
+          <div class="project-tech">NEXT.JS · TYPESCRIPT · REACT · SEO ENTERPRISE · CI/CD</div>
+        </div>
+
+        <div class="project">
+          <div class="project-head">
+            <span class="project-title">Quindio Travel</span>
+            <span class="project-tag gray">Portal Regional</span>
+          </div>
+          <div class="project-desc">
+            Portal turístico regional con integración multi-municipio, analytics de usuarios,
+            optimización de rendimiento y SEO técnico on-page.
+          </div>
+          <div class="project-tech">HTML5 · CSS3 · JAVASCRIPT · ANALYTICS · SEO</div>
+        </div>
+
+        <div class="project">
+          <div class="project-head">
+            <span class="project-title">CyberArma Framework</span>
+            <span class="project-tag gray">Seguridad</span>
+          </div>
+          <div class="project-desc">
+            Framework profesional de evaluación de seguridad: 1.000+ líneas de Python para
+            automatización de pentesting, escaneo de puertos y generación de reportes de
+            vulnerabilidades. Integración con Nmap, Metasploit y Burpsuite.
+          </div>
+          <div class="project-tech">PYTHON · BASH · NMAP · METASPLOIT · BURPSUITE</div>
+        </div>
+
+        <div class="project">
+          <div class="project-head">
+            <span class="project-title">Arquitectura Enterprise Security · 7 Capas</span>
+            <span class="project-tag gray">DevOps</span>
+          </div>
+          <div class="project-desc">
+            Sistema distribuido de alto rendimiento para 1.000+ objetivos con Machine Learning
+            de detección de anomalías y threat intelligence en tiempo real.
+          </div>
+          <div class="project-tech">DOCKER · KUBERNETES · ELK · KAFKA · REDIS · ML</div>
+        </div>
+
+        <div class="project">
+          <div class="project-head">
+            <span class="project-title">ApexStrike · Zenythos Sword</span>
+            <span class="project-tag gray">Herramientas</span>
+          </div>
+          <div class="project-desc">
+            ApexStrike: herramienta de pentesting web con análisis OWASP Top 10 automatizado.
+            Zenythos Sword: framework de threat intelligence con integración SIEM (Wazuh,
+            Splunk) y respuesta a incidentes automatizada.
+          </div>
+          <div class="project-tech">TYPESCRIPT · PYTHON · OWASP · SIEM · THREAT INTEL</div>
+        </div>
+
+        <div class="project">
+          <div class="project-head">
+            <span class="project-title">Antidron System</span>
+            <span class="project-tag gray">IoT · Hardware</span>
+          </div>
+          <div class="project-desc">
+            Detección y neutralización de drones: integración hardware/software con
+            microcontroladores, sensores y comunicación RF para seguridad física y defensa.
+          </div>
+          <div class="project-tech">PYTHON · MICRONTRADORES · RF · SENSORES · IOT</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Certificaciones</div>
+        <p class="profile">
+          <b>EC-Council</b> — 2024 &nbsp;·&nbsp;
+          <b>Gestión y Seguridad de Servidores Linux</b> — Universidad de Colorado, 2023
+          &nbsp;·&nbsp;
+          <b>Introducción a Ataques Cibernéticos</b> — NYU Tandon School of Engineering, 2023
+        </p>
+      </div>
+    </div>
+
+    <!-- Columna lateral -->
+    <div class="col-side">
+      <div class="side-block">
+        <div class="award-box">
+          <strong>★ Nominación Global</strong>
+          World Summit Awards 2026 · Negocios y Comercio · Colombia.
+          Solución digital más innovadora — salentoalamano.com
+        </div>
+      </div>
+
+      <div class="side-block">
+        <div class="side-label">Seguridad &amp; SOC</div>
+        <div class="chip-row">
+          <span class="chip gold">Wazuh SIEM</span><span class="chip">TheHive</span>
+          <span class="chip">Cortex</span><span class="chip">MISP</span>
+          <span class="chip">OpenCTI</span><span class="chip">Threat Intel</span>
+          <span class="chip">Nmap</span><span class="chip">Metasploit</span>
+          <span class="chip">Burpsuite</span><span class="chip">Wireshark</span>
+          <span class="chip">Nessus</span><span class="chip">Hydra</span>
+          <span class="chip">Hashcat</span>
+        </div>
+      </div>
+
+      <div class="side-block">
+        <div class="side-label">Arquitectura &amp; DevOps</div>
+        <div class="chip-row">
+          <span class="chip gold">ELK Stack</span><span class="chip">Docker</span>
+          <span class="chip">Kubernetes</span><span class="chip">Apache Kafka</span>
+          <span class="chip">Redis</span><span class="chip">7 Capas</span>
+          <span class="chip">CI/CD</span><span class="chip">WSL2</span>
+        </div>
+      </div>
+
+      <div class="side-block">
+        <div class="side-label">Machine Learning</div>
+        <div class="chip-row">
+          <span class="chip">TensorFlow</span><span class="chip">PyTorch</span>
+          <span class="chip">MLflow</span><span class="chip">Jupyter</span>
+          <span class="chip">Anomalías</span>
+        </div>
+      </div>
+
+      <div class="side-block">
+        <div class="side-label">Desarrollo Full-Stack</div>
+        <div class="chip-row">
+          <span class="chip gold">React</span><span class="chip gold">Next.js</span>
+          <span class="chip gold">TypeScript</span><span class="chip">JavaScript</span>
+          <span class="chip">Python</span><span class="chip">Java</span>
+          <span class="chip">HTML5</span><span class="chip">CSS3</span>
+          <span class="chip">Tailwind</span><span class="chip">Vite</span>
+        </div>
+      </div>
+
+      <div class="side-block">
+        <div class="side-label">Certificaciones</div>
+        <div class="cert">
+          <div class="name">EC-Council Certified</div>
+          <div class="meta">2024</div>
+        </div>
+        <div class="cert">
+          <div class="name">Linux Server Management &amp; Security</div>
+          <div class="meta">Univ. de Colorado · 2023</div>
+        </div>
+        <div class="cert">
+          <div class="name">Introduction to Cyber Attacks</div>
+          <div class="meta">NYU Tandon · 2023</div>
+        </div>
+      </div>
+
+      <div class="side-block">
+        <div class="side-label">Contacto Directo</div>
+        <div class="side-contact">
+          <div><span>EMAIL</span> parraprietodavid87@gmail.com</div>
+          <div><span>TEL</span> +57 302 604 7592</div>
+          <div><span>GITHUB</span> /dphack1987</div>
+          <div><span>WEB</span> salentoalamano.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>David Parra · CV 2026</span>
+    <span><b>github.com/dphack1987</b> · 45+ proyectos</span>
+  </div>
+
+</div>
+</body>
+</html>

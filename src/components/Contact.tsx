@@ -7,95 +7,194 @@ import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+const CONTACT_EMAIL = "parraprietodavid87@gmail.com";
+
 export default function Contact() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState<"idle" | "error">("idle");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you can add your form submission logic
-    console.log("Form submitted:", formData);
+
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setStatus("error");
+      return;
+    }
+
+    const subject =
+      language === 'es'
+        ? `Mensaje de portafolio - ${formData.name}`
+        : `Portfolio message - ${formData.name}`;
+    const body =
+      (language === 'es'
+        ? `Nombre: ${formData.name}\nCorreo: ${formData.email}\n\nMensaje:\n`
+        : `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n`) +
+      formData.message;
+
+    setStatus("idle");
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
   };
 
-  return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">{t('contact.title')}</h2>
-        <div className="max-w-2xl mx-auto">
-          <Card className="p-6">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                  {t('contact.name')}
-                </label>
-                <Input
-                  id="name"
-                  type="text"
-                  placeholder={t('contact.name')}
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  {t('contact.email')}
-                </label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder={t('contact.email')}
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  {t('contact.message')}
-                </label>
-                <Textarea
-                  id="message"
-                  placeholder={t('contact.message')}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  required
-                  className="min-h-[150px]"
-                />
-              </div>
-              <Button type="submit" className="w-full">
-                {t('contact.send')}
-              </Button>
-            </form>
+  const fieldClass =
+    'h-14 rounded-none border-2 border-zinc-700 bg-black px-4 text-base text-white placeholder:text-zinc-600 focus:border-[#ffd400] focus:ring-0';
 
-            <div className="mt-8 pt-6 border-t border-gray-200">
-              <h3 className="text-lg font-semibold mb-4">{t('contact.directContact')}</h3>
-              <div className="space-y-3">
-                <p className="flex items-center text-gray-600">
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <a href="mailto:parraprietodavid87@gmail.com" className="hover:text-blue-600">
-                    parraprietodavid87@gmail.com
-                  </a>
+  return (
+    <section id="contact" className="scroll-mt-20 border-t-2 border-[#ffd400] bg-[#0a0a0c] py-24">
+      <div className="container mx-auto px-4">
+        <div className="relative mb-14">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-10 right-0 select-none font-display text-[9rem] leading-none text-white/[0.04] md:text-[12rem]"
+          >
+            05
+          </span>
+          <p className="eyebrow">{"// "}{t('nav.contact')}</p>
+          <h2 className="display-hover relative mt-3 font-display text-5xl uppercase leading-none tracking-tight text-white md:text-7xl">
+            {t('contact.title')}
+          </h2>
+          <span className="rule-gold mt-5" />
+        </div>
+
+        <div className="grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-5">
+          {/* Formulario */}
+          <div className="lg:col-span-3">
+            <Card className="rounded-none border-2 border-zinc-800 bg-[#0e0e12] p-6 md:p-8">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="mb-2 block font-mono text-[11px] font-bold uppercase tracking-widest text-[#ffd400]"
+                    >
+                      {t('contact.name')}
+                    </label>
+                    <Input
+                      id="name"
+                      type="text"
+                      placeholder={t('contact.name')}
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      required
+                      className={fieldClass}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="mb-2 block font-mono text-[11px] font-bold uppercase tracking-widest text-[#ffd400]"
+                    >
+                      {t('contact.email')}
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder={t('contact.email')}
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      required
+                      className={fieldClass}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="mb-2 block font-mono text-[11px] font-bold uppercase tracking-widest text-[#ffd400]"
+                  >
+                    {t('contact.message')}
+                  </label>
+                  <Textarea
+                    id="message"
+                    placeholder={t('contact.message')}
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    required
+                    className="min-h-[180px] rounded-none border-2 border-zinc-700 bg-black px-4 py-3 text-base text-white placeholder:text-zinc-600 focus:border-[#ffd400] focus:ring-0"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  className="h-14 w-full rounded-none border-2 border-[#ffd400] bg-[#ffd400] text-sm font-black uppercase tracking-widest text-black transition-all hover:-translate-y-1 hover:bg-black hover:text-[#ffd400]"
+                >
+                  {t('contact.send')} →
+                </Button>
+
+                <p className="text-center font-mono text-xs text-zinc-500">
+                  {t('contact.emailNotice')}
                 </p>
-                <p className="flex items-center text-gray-600">
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  <a href="tel:+573026047592" className="hover:text-blue-600">
+
+                {status === "error" && (
+                  <p
+                    className="border border-red-500 bg-red-500/10 p-3 text-center font-mono text-xs font-bold uppercase tracking-widest text-red-400"
+                    role="alert"
+                  >
+                    {language === 'es'
+                      ? "Completa todos los campos antes de enviar."
+                      : "Fill in all fields before sending."}
+                  </p>
+                )}
+              </form>
+            </Card>
+          </div>
+
+          {/* Contacto directo */}
+          <div className="lg:col-span-2">
+            <div className="border-2 border-[#ffd400] bg-[#ffd400] p-6 text-black md:p-8">
+              <h3 className="font-display text-2xl uppercase tracking-wide md:text-3xl">
+                {t('contact.directContact')}
+              </h3>
+              <span className="mt-3 block h-1 w-20 bg-black" />
+
+              <div className="mt-8 space-y-6">
+                <a href={`mailto:${CONTACT_EMAIL}`} className="block group">
+                  <p className="font-mono text-[11px] font-bold uppercase tracking-widest text-black/60">
+                    Email
+                  </p>
+                  <p className="mt-1 break-all font-bold underline decoration-2 underline-offset-4 group-hover:decoration-black md:text-lg">
+                    {CONTACT_EMAIL}
+                  </p>
+                </a>
+
+                <a href="tel:+573026047592" className="block group">
+                  <p className="font-mono text-[11px] font-bold uppercase tracking-widest text-black/60">
+                    Phone
+                  </p>
+                  <p className="mt-1 font-bold underline decoration-2 underline-offset-4 group-hover:decoration-black md:text-lg">
                     +57 302 604 7592
-                  </a>
-                </p>
+                  </p>
+                </a>
+
+                <a
+                  href="https://github.com/dphack1987"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group"
+                >
+                  <p className="font-mono text-[11px] font-bold uppercase tracking-widest text-black/60">
+                    GitHub
+                  </p>
+                  <p className="mt-1 font-bold underline decoration-2 underline-offset-4 group-hover:decoration-black md:text-lg">
+                    @dphack1987
+                  </p>
+                </a>
               </div>
+
+              <p className="mt-10 border-t-2 border-black/20 pt-4 font-mono text-[11px] font-bold uppercase tracking-widest text-black/70">
+                {language === 'es'
+                  ? "Respuesta habitual en menos de 24 horas."
+                  : "Typical reply in under 24 hours."}
+              </p>
             </div>
-          </Card>
+          </div>
         </div>
       </div>
     </section>

@@ -94,20 +94,45 @@ const getSkillCategories = (language: 'en' | 'es') => [
 export default function Skills() {
   const { language, t } = useLanguage();
   const skillCategories = getSkillCategories(language);
+
   return (
-    <section id="skills" className="py-20 bg-gray-50">
+    <section id="skills" className="scroll-mt-20 border-t border-zinc-800 bg-[#0a0a0c] py-24">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">{t('skills.title')}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="relative mb-14">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-10 right-0 select-none font-display text-[9rem] leading-none text-white/[0.04] md:text-[12rem]"
+          >
+            03
+          </span>
+          <p className="eyebrow">{"// "}{t('nav.skills')}</p>
+          <h2 className="display-hover relative mt-3 font-display text-5xl uppercase leading-none tracking-tight text-white md:text-7xl">
+            {t('skills.title')}
+          </h2>
+          <span className="rule-gold mt-5" />
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {skillCategories.map((category, idx) => (
-            <Card key={idx} className="p-6">
-              <h3 className="text-xl font-semibold mb-4">{category.title}</h3>
+            <Card
+              key={idx}
+              className="reveal rounded-none border border-zinc-800 bg-[#0e0e12] p-6 transition-colors hover:border-[#ffd400]"
+            >
+              <div className="mb-4 flex items-center gap-3">
+                <span className="font-mono text-xs font-bold text-[#ffd400]">
+                  {String(idx + 1).padStart(2, '0')}
+                </span>
+                <h3 className="font-display text-xl uppercase tracking-wide text-white md:text-2xl">
+                  {category.title}
+                </h3>
+              </div>
+
               {category.skills ? (
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, skillIdx) => (
                     <span
                       key={skillIdx}
-                      className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm"
+                      className="border border-zinc-700 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-zinc-300 transition-colors hover:border-[#ffd400] hover:bg-[#ffd400] hover:text-black"
                     >
                       {skill}
                     </span>
@@ -115,11 +140,14 @@ export default function Skills() {
                 </div>
               ) : (
                 <div className="space-y-3">
-                  {category.items?.map((item, itemIdx) => (
-                    <div key={itemIdx} className="border-b pb-2 last:border-0">
-                      <p className="font-medium">{item.name}</p>
-                      <p className="text-sm text-gray-600">
-                        {item.org} • {item.date}
+                  {category.items?.map((item) => (
+                    <div
+                      key={item.name}
+                      className="flex flex-wrap items-baseline justify-between gap-2 border-b border-zinc-800 pb-2 last:border-0"
+                    >
+                      <p className="font-bold text-white">{item.name}</p>
+                      <p className="font-mono text-xs uppercase tracking-widest text-[#ffd400]">
+                        {item.org} · {item.date}
                       </p>
                     </div>
                   ))}

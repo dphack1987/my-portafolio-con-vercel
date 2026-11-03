@@ -5,146 +5,214 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Image from "next/image";
 
-const getProjects = (language: 'en' | 'es') => [
+type Project = {
+  id: number;
+  title: string;
+  description: string;
+  details: string[];
+  tools: string[];
+  tags: string[];
+  link: string;
+  link2?: string;
+  link2Label?: string;
+  award?: boolean;
+  featured?: boolean;
+  construction?: boolean;
+  image?: string;
+  imageAlt?: string;
+};
+
+const getProjects = (language: 'en' | 'es'): Project[] => [
   {
     id: 1,
-    title: language === 'es' ? "💎 Salento a la Mano - NOMINADO WSA 2026" : "💎 Salento a la Mano - WSA 2026 NOMINEE",
+    title: language === 'es' ? "Salento a la Mano - NOMINADO WSA 2026" : "Salento a la Mano - WSA 2026 NOMINEE",
     description: language === 'es'
-      ? "PROYECTO ESTRELLA - NOMINADO AL PREMIO World Summit Awards 2026 como la solución digital más innovadora en Negocios y Comercio de Colombia (24ª edición). Plataforma de turismo digital enterprise con 70+ negocios verificados, arquitectura escalable y SEO avanzado que posiciona orgánicamente en Google."
-      : "STAR PROJECT - WSA 2026 NOMINEE as the most innovative digital solution in Business & Commerce in Colombia (24th edition). Enterprise digital tourism platform with 70+ verified businesses, scalable architecture and advanced SEO with organic Google positioning.",
+      ? "PROYECTO ESTRELLA - Nominado al World Summit Awards 2026 (Negocios y Comercio, Colombia). Plataforma turística de Salento, Quindío: mapa interactivo con Leaflet, pedidos directos por WhatsApp, reseñas verificadas y modo offline para el Valle de Cocora. Multi-idioma (ES/EN/FR/DE/PT/IT), multi-moneda y SEO defensivo en producción."
+      : "STAR PROJECT - WSA 2026 NOMINEE (Business & Commerce, Colombia). Tourism platform for Salento, Quindío: interactive Leaflet map, direct WhatsApp ordering, verified reviews and offline mode for Valle de Cocora. Multi-language (ES/EN/FR/DE/PT/IT), multi-currency and defensive SEO in production.",
     details: language === 'es'
       ? [
-          "🏆 NOMINADO World Summit Awards 2026 - Negocios y Comercio",
-          "🏗️ Arquitectura escalable enterprise (Next.js + TypeScript)",
-          "🎯 SEO avanzado con posicionamiento orgánico top 10",
-          "🌍 70+ negocios integrados verificados",
-          "📱 Guía bilingüe Español/Inglés",
-          "💳 Sistema de reservas y pagos integrados",
-          "🗺️ Mapa interactivo con geolocalización",
-          "⚡ CI/CD pipeline para despliegues continuos"
+          "🏆 Nominado World Summit Awards 2026",
+          "🗺️ Mapa interactivo con Leaflet y geolocalización",
+          "📴 Modo offline total para Valle de Cocora (PWA)",
+          "💬 Pedidos directos por WhatsApp + reseñas",
+          "🌍 6 idiomas y multi-moneda (COP/USD/EUR)",
+          "🛡️ SEO defensivo contra desinformación",
+          "⚡ Despliegue continuo en Vercel"
         ]
       : [
-          "🏆 NOMINATED World Summit Awards 2026 - Business & Commerce",
-          "🏗️ Scalable enterprise architecture (Next.js + TypeScript)",
-          "🎯 Advanced SEO with organic top 10 positioning",
-          "🌍 70+ integrated verified businesses",
-          "📱 Bilingual guide Spanish/English",
-          "💳 Booking and payment integration system",
-          "🗺️ Interactive map with geolocation",
-          "⚡ CI/CD pipeline for continuous deployments"
+          "🏆 WSA 2026 NOMINEE",
+          "🗺️ Interactive map with Leaflet geolocation",
+          "📴 Full offline mode for Valle de Cocora (PWA)",
+          "💬 Direct WhatsApp ordering + reviews",
+          "🌍 6 languages and multi-currency (COP/USD/EUR)",
+          "🛡️ Defensive SEO against disinformation",
+          "⚡ Continuous deployment on Vercel"
         ],
-    tools: ["Next.js", "TypeScript", "React", "SEO Enterprise", "CI/CD", "API Integration", "Geolocation"],
+    tools: ["React 18", "Vite", "TypeScript", "Leaflet", "PWA", "SEO"],
     tags: language === 'es'
-      ? ["🏆 Joya del Portafolio", "WSA 2026", "Enterprise Architecture", "SEO"]
-      : ["🏆 Portfolio Gem", "WSA 2026", "Enterprise Architecture", "SEO"],
+      ? ["🏆 Joya del Portafolio", "WSA 2026", "Turismo Digital", "PWA"]
+      : ["🏆 Portfolio Gem", "WSA 2026", "Digital Tourism", "PWA"],
     link: "https://www.salentoalamano.com",
     award: true,
     featured: true,
-    image: "https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: "/media/logo-salentoalamano.com.webp",
+    imageAlt: language === 'es' ? "Sello Salento a la Mano" : "Salento a la Mano seal",
   },
   {
     id: 2,
-    title: language === 'es' ? "🏗️ Filandia a la Mano - En Construcción" : "🏗️ Filandia a la Mano - Under Construction",
+    title: language === 'es' ? "Quindío Travel - Portal Turístico" : "Quindío Travel - Tourism Portal",
     description: language === 'es'
-      ? "Plataforma de turismo digital enterprise para Filandia, Quindío. Implementación de arquitectura moderna con TypeScript, integración de mapas interactivos y optimización SEO. Demostración de habilidades en desarrollo full-stack escalable."
-      : "Enterprise digital tourism platform for Filandia, Quindío. Modern architecture implementation with TypeScript, interactive map integration and SEO optimization. Demonstration of scalable full-stack development skills.",
+      ? "Agencia de viajes del Eje Cafetero (RNT 18152). Frontend vanilla sin frameworks con SEO avanzado: Schema.org, hreflang ES/EN/ZH, Core Web Vitals, 30 artículos y 112 páginas pSEO generadas por script. Motor de cotización con precios en JSON y chatbot IA con fallback local."
+      : "Travel agency for the Colombian Coffee Axis (RNT 18152). Vanilla frontend without frameworks plus advanced SEO: Schema.org, ES/EN/ZH hreflang, Core Web Vitals, 30 articles and 112 script-generated pSEO pages. Quote engine with JSON pricing and AI chatbot with local fallback.",
     details: language === 'es'
       ? [
-          "🚧 En construcción activo",
-          "⚛️ Desarrollo con React y Next.js",
-          "📘 TypeScript para type safety",
-          "🎨 Tailwind CSS para diseño responsivo",
-          "🗺️ Integración de mapas interactivos",
-          "📊 SEO optimization técnica",
-          "🔗 API RESTful para integración de datos"
+          "📊 112 páginas pSEO + 30 artículos generados",
+          "🔍 Schema.org, sitemap, hreflang ES/EN/ZH",
+          "⚡ Core Web Vitals optimizados",
+          "💰 Motor de cotización con tarifas en JSON",
+          "🤖 Chatbot IA 'Don Chucho' con fallback local",
+          "🚀 Deploy automático GitHub Actions → GitHub Pages",
+          "🖼️ 480 imágenes optimizadas"
         ]
       : [
-          "🚧 Active construction",
-          "⚛️ React and Next.js development",
-          "📘 TypeScript for type safety",
-          "🎨 Tailwind CSS for responsive design",
-          "🗺️ Interactive map integration",
-          "📊 Technical SEO optimization",
-          "🔗 RESTful API for data integration"
+          "📊 112 pSEO pages + 30 generated articles",
+          "🔍 Schema.org, sitemap, ES/EN/ZH hreflang",
+          "⚡ Optimized Core Web Vitals",
+          "💰 Quote engine with JSON pricing",
+          "🤖 'Don Chucho' AI chatbot with local fallback",
+          "🚀 GitHub Actions → GitHub Pages auto deploy",
+          "🖼️ 480 optimized images"
         ],
-    tools: ["TypeScript", "Next.js", "React", "Tailwind CSS", "REST API", "Maps API"],
+    tools: ["HTML5", "CSS3", "JavaScript", "Schema.org", "GitHub Actions", "SEO"],
     tags: language === 'es'
-      ? ["Full-Stack", "TypeScript", "Next.js", "En Construcción"]
-      : ["Full-Stack", "TypeScript", "Next.js", "Under Construction"],
-    link: "https://github.com/dphack1987/filandialamano.com",
-    construction: true,
-    image: "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=800"
+      ? ["Frontend", "SEO", "pSEO", "Performance"]
+      : ["Frontend", "SEO", "pSEO", "Performance"],
+    link: "https://quindiotravel.com.co",
   },
   {
     id: 3,
-    title: language === 'es' ? "🌐 Quindio Travel - Portal Regional" : "🌐 Quindio Travel - Regional Portal",
+    title: language === 'es' ? "Mapa Turístico del Quindío" : "Quindío Tourist Map",
     description: language === 'es'
-      ? "Portal de turismo regional del Quindío con integración de múltiples municipios. Desarrollo frontend avanzado con HTML5, CSS3 y JavaScript vanilla. Implementación de estrategias de marketing digital y SEO técnico para visibilidad regional."
-      : "Regional tourism portal for Quindío with multiple municipality integration. Advanced frontend development with HTML5, CSS3 and vanilla JavaScript. Implementation of digital marketing strategies and technical SEO for regional visibility.",
+      ? "Plataforma programática que genera cientos de páginas turísticas por municipio con scripts Node: validación de datos maestros, generación de GeoJSON, sitemaps y verificación automática de canonicals. Arquitectura de internal linking documentada y headers de seguridad HSTS en Vercel."
+      : "Programmatic platform generating hundreds of municipality tourism pages via Node scripts: master data validation, GeoJSON generation, sitemaps and automatic canonical verification. Documented internal linking architecture and HSTS security headers on Vercel.",
     details: language === 'es'
       ? [
-          "📊 Analytics y tracking de usuarios",
-          "🎨 Diseño responsivo cross-browser",
-          "⚡ Optimización de rendimiento web",
-          "🔍 SEO técnico on-page",
-          "📱 Mobile-first responsive design",
-          "🎯 Estrategias de marketing digital",
-          "🔗 Integración con redes sociales"
+          "⚙️ Generador programático de páginas (pSEO)",
+          "🗺️ GeoJSON + sitemaps generados por script",
+          "✅ Validación de datos y canonicals automatizada",
+          "🔗 Arquitectura de internal linking documentada",
+          "🔒 HSTS + X-Content-Type-Options en Vercel",
+          "📄 Informes técnicos de SEO y diagnóstico GSC"
         ]
       : [
-          "📊 User analytics and tracking",
-          "🎨 Cross-browser responsive design",
-          "⚡ Web performance optimization",
-          "🔍 Technical on-page SEO",
-          "📱 Mobile-first responsive design",
-          "🎯 Digital marketing strategies",
-          "🔗 Social media integration"
+          "⚙️ Programmatic page generator (pSEO)",
+          "🗺️ Script-generated GeoJSON + sitemaps",
+          "✅ Automated data and canonical validation",
+          "🔗 Documented internal linking architecture",
+          "🔒 HSTS + X-Content-Type-Options on Vercel",
+          "📄 Technical SEO and GSC diagnostic reports"
         ],
-    tools: ["HTML5", "CSS3", "JavaScript ES6+", "Web Performance", "Analytics", "SEO"],
+    tools: ["Node.js", "JavaScript", "GeoJSON", "SEO Técnico", "Vercel", "Scripts"],
     tags: language === 'es'
-      ? ["Frontend", "SEO", "Marketing Digital", "Performance"]
-      : ["Frontend", "SEO", "Digital Marketing", "Performance"],
-    link: "https://quindiotravel.com.co",
-    image: "https://images.pexels.com/photos/322800/pexels-photo-322800.jpeg?auto=compress&cs=tinysrgb&w=800"
+      ? ["pSEO", "Arquitectura", "Automatización", "SEO"]
+      : ["pSEO", "Architecture", "Automation", "SEO"],
+    link: "https://www.mapaturisticodelquindio.com",
+    image: "/media/logo-mapa-quindio.png",
+    imageAlt: language === 'es' ? "Logo Mapa Turístico Quindío" : "Mapa Turístico Quindío logo",
   },
   {
     id: 4,
-    title: language === 'es' ? "🛡️ CyberArma Framework - Enterprise Security" : "🛡️ CyberArma Framework - Enterprise Security",
+    title: "MAGNETO-ID - Pulsera con Magnetómetro",
     description: language === 'es'
-      ? "Framework profesional de evaluación de seguridad con integración multi-herramienta enterprise. Desarrollo en Python con 1,000+ líneas de código para automatización de pentesting y escaneo de vulnerabilidades. Demostración de habilidades en scripting, automatización y ciberseguridad ofensiva."
-      : "Professional security assessment framework with multi-tool enterprise integration. Python development with 1,000+ lines of code for pentesting automation and vulnerability scanning. Demonstration of scripting, automation and offensive cybersecurity skills.",
+      ? "Sistema de identificación médica basado en firmas magnéticas: hardware de pulsera con magnetómetro, decodificadores Python, base de datos de firmas, dashboard en tiempo real, app móvil y guías de fabricación con moldes 3D. Incluye investigación científica experimental y documentación completa de arquitectura."
+      : "Medical identification system based on magnetic signatures: magnetometer bracelet hardware, Python decoders, signature database, real-time dashboard, mobile app and fabrication guides with 3D-printed molds. Includes experimental scientific research and full architecture documentation.",
     details: language === 'es'
       ? [
-          "🐍 Python avanzado con scripting de seguridad",
-          "🔧 Automatización de herramientas de pentesting",
-          "📊 Generación de reportes de vulnerabilidades",
-          "🔍 Escaneo automatizado de puertos y servicios",
-          "🤖 Integración con Nmap, Metasploit, Burpsuite",
-          "📝 Documentación técnica completa",
-          "⚙️ Configuración modular y extensible"
+          "🧲 Sistema de identificación médica por firmas magnéticas",
+          "⌚ Hardware de pulsera con magnetómetro",
+          "🐍 Decodificadores y base de datos en Python",
+          "📊 Dashboard en tiempo real + app móvil",
+          "🔬 Investigación científica experimental documentada",
+          "📐 Guías de fabricación con moldes 3D"
         ]
       : [
-          "🐍 Advanced Python security scripting",
-          "🔧 Pentesting tool automation",
-          "📊 Vulnerability report generation",
-          "🔍 Automated port and service scanning",
-          "🤖 Integration with Nmap, Metasploit, Burpsuite",
-          "📝 Complete technical documentation",
-          "⚙️ Modular and extensible configuration"
+          "🧲 Medical identification via magnetic signatures",
+          "⌚ Magnetometer bracelet hardware",
+          "🐍 Python decoders and signature database",
+          "📊 Real-time dashboard + mobile app",
+          "🔬 Documented experimental scientific research",
+          "📐 Fabrication guides with 3D-printed molds"
         ],
-    tools: ["Python Advanced", "Bash Scripting", "Nmap", "Metasploit", "Burpsuite", "Automation"],
-    tags: language === 'es'
-      ? ["Ciberseguridad", "Python", "Pentesting", "Automation"]
-      : ["Cybersecurity", "Python", "Pentesting", "Automation"],
-    link: "https://github.com/dphack1987/weapon",
-    image: "https://images.pexels.com/photos/5380666/pexels-photo-5380666.jpeg?auto=compress&cs=tinysrgb&w=800"
+    tools: ["Python", "Magnetómetro", "Hardware", "Dashboard", "App Móvil", "3D Printing"],
+    tags: ["IoT", "Hardware", "Python", "Innovación"],
+    link: "https://github.com/dphack1987/magnetrometro",
   },
   {
     id: 5,
-    title: language === 'es' ? "🚁 Antidron System - Hardware/Software Integration" : "🚁 Antidron System - Hardware/Software Integration",
+    title: "GeoTracker - GPS en Tiempo Real",
     description: language === 'es'
-      ? "Sistema de detección y neutralización de drones con tecnología avanzada (2026). Integración hardware/software para aplicaciones en seguridad y defensa. Desarrollo en Python con sensores electrónica y firmware. Demostración de habilidades en sistemas embebidos, IoT y seguridad física."
-      : "Drone detection and neutralization system with advanced technology (2026). Hardware/software integration for security and defense applications. Python development with electronic sensors and firmware. Demonstration of embedded systems, IoT and physical security skills.",
+      ? "Sistema de tracking GPS en tiempo real con links cortos por plantilla (seguridad, logística, personas). API REST con creación de enlaces de seguimiento, panel Next.js, scripts de testing automatizado de la API y pipeline de despliegue a producción."
+      : "Real-time GPS tracking system with template-based short links (security, logistics, people). REST API for tracking link creation, Next.js dashboard, automated API testing scripts and production deployment pipeline.",
+    details: language === 'es'
+      ? [
+          "📍 Tracking GPS en tiempo real",
+          "🔗 Links cortos por plantilla de caso de uso",
+          "🧪 Tests automatizados de API (tracking-links)",
+          "🗄️ Capa de datos con Drizzle ORM",
+          "🚀 Scripts de despliegue a producción",
+          "📱 Panel Next.js responsive"
+        ]
+      : [
+          "📍 Real-time GPS tracking",
+          "🔗 Short links per use-case template",
+          "🧪 Automated API tests (tracking-links)",
+          "🗄️ Data layer with Drizzle ORM",
+          "🚀 Production deployment scripts",
+          "📱 Responsive Next.js dashboard"
+        ],
+    tools: ["Next.js", "TypeScript", "Drizzle ORM", "REST API", "GPS", "Testing"],
+    tags: ["Full-Stack", "GPS", "Next.js", "Tiempo Real"],
+    link: "https://github.com/dphack1987/geotracker-real-time-gps-tracking",
+  },
+  {
+    id: 6,
+    title: language === 'es' ? "Ciberseguridad - Ataque y Defensa" : "Cybersecurity - Attack & Defense",
+    description: language === 'es'
+      ? "Dúo de herramientas propias: ApexStrike (framework de pentesting con escaneo de puertos, análisis web/API/IoT, motor de exploits y automatización CI/CD, licencia MIT) y Zenythos Sword (framework de threat intelligence con integración SIEM, alertas con ML, dashboards en tiempo real y respuesta a incidentes)."
+      : "Own tool duo: ApexStrike (pentesting framework with port scanning, web/API/IoT analysis, exploit engine and CI/CD automation, MIT license) and Zenythos Sword (threat intelligence framework with SIEM integration, ML alerts, real-time dashboards and incident response).",
+    details: language === 'es'
+      ? [
+          "🛡️ ApexStrike: pentesting web, API e IoT",
+          "🔍 Escaneo de puertos y motor de exploits",
+          "⚙️ Automatización con CI/CD y escaneo continuo",
+          "⚔️ Zenythos Sword: threat intelligence en tiempo real",
+          "🔗 Integración SIEM (Wazuh, Splunk) y alertas ML",
+          "🔬 Forense digital, log analysis y respuesta a incidentes",
+          "📜 Licencia MIT + documentación bilingüe"
+        ]
+      : [
+          "🛡️ ApexStrike: web, API and IoT pentesting",
+          "🔍 Port scanning and exploit engine",
+          "⚙️ CI/CD automation and continuous scanning",
+          "⚔️ Zenythos Sword: real-time threat intelligence",
+          "🔗 SIEM integration (Wazuh, Splunk) + ML alerts",
+          "🔬 Digital forensics, log analysis and incident response",
+          "📜 MIT license + bilingual documentation"
+        ],
+    tools: ["Python", "OWASP", "SIEM", "Threat Intelligence", "Pentesting", "ML"],
+    tags: language === 'es'
+      ? ["Ataque", "Defensa", "Pentesting", "Threat Intel"]
+      : ["Offense", "Defense", "Pentesting", "Threat Intel"],
+    link: "https://github.com/dphack1987/ApexStrike",
+    link2: "https://github.com/dphack1987/zenythos-sword",
+    link2Label: "Zenythos Sword",
+  },
+  {
+    id: 7,
+    title: language === 'es' ? "Antidron System - Detección y Neutralización" : "Antidron System - Detection & Neutralization",
+    description: language === 'es'
+      ? "Sistema de detección y neutralización de drones: integración hardware/software con microcontroladores, sensores electrónicos y comunicación RF. Desarrollo en Python para control de sensores y actuadores, con aplicaciones en seguridad física y defensa. Investigación activa (última actualización 2026)."
+      : "Drone detection and neutralization system: hardware/software integration with microcontrollers, electronic sensors and RF communication. Python development for sensor and actuator control, with physical security and defense applications. Active research (last update 2026).",
     details: language === 'es'
       ? [
           "🎯 Detección y tracking de drones en tiempo real",
@@ -152,8 +220,7 @@ const getProjects = (language: 'en' | 'es') => [
           "🔌 Integración hardware/software con microcontroladores",
           "🐍 Python para control de sensores y actuadores",
           "📡 Comunicación RF y protocolos inalámbricos",
-          "🛡️ Aplicaciones en seguridad física y defensa",
-          "🔬 Pruebas de laboratorio y field testing"
+          "🛡️ Aplicaciones en seguridad física y defensa"
         ]
       : [
           "🎯 Real-time drone detection and tracking",
@@ -161,203 +228,156 @@ const getProjects = (language: 'en' | 'es') => [
           "🔌 Hardware/software integration with microcontrollers",
           "🐍 Python for sensor and actuator control",
           "📡 RF communication and wireless protocols",
-          "🛡️ Physical security and defense applications",
-          "🔬 Laboratory testing and field testing"
+          "🛡️ Physical security and defense applications"
         ],
     tools: ["Python", "Electronics", "Microcontrollers", "RF Systems", "IoT", "Sensors"],
     tags: language === 'es'
       ? ["IoT", "Hardware", "Python", "Seguridad Física"]
       : ["IoT", "Hardware", "Python", "Physical Security"],
     link: "https://github.com/dphack1987/antidron",
-    image: "https://images.pexels.com/photos/2589256/pexels-photo-2589256.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
-  {
-    id: 6,
-    title: language === 'es' ? "🏛️ Arquitectura Enterprise Security - 7 Capas" : "🏛️ Enterprise Security Architecture - 7 Layers",
-    description: language === 'es'
-      ? "Sistema distribuido de alto rendimiento para 1000+ objetivos con Machine Learning y threat intelligence. Implementación de arquitectura de 7 capas enterprise con ELK Stack, Docker, Kubernetes, Apache Kafka y Redis. Demostración de habilidades en DevOps, arquitectura de sistemas y monitoreo de seguridad a escala."
-      : "High-performance distributed system for 1000+ targets with Machine Learning and threat intelligence. Implementation of 7-layer enterprise architecture with ELK Stack, Docker, Kubernetes, Apache Kafka and Redis. Demonstration of DevOps, system architecture and security monitoring at scale skills.",
-    details: language === 'es'
-      ? [
-          "🏗️ Arquitectura de 7 capas enterprise",
-          "🐳 Docker y Kubernetes para orquestración",
-          "📊 ELK Stack para logging y análisis",
-          "⚡ Apache Kafka para streaming de eventos",
-          "💾 Redis para caching de alta velocidad",
-          "🤖 Machine Learning para detección de anomalías",
-          "📈 Threat intelligence en tiempo real",
-          "🚀 1000+ objetivos monitoreados simultáneamente"
-        ]
-      : [
-          "🏗️ 7-layer enterprise architecture",
-          "🐳 Docker and Kubernetes for orchestration",
-          "📊 ELK Stack for logging and analysis",
-          "⚡ Apache Kafka for event streaming",
-          "💾 Redis for high-speed caching",
-          "🤖 Machine Learning for anomaly detection",
-          "📈 Real-time threat intelligence",
-          "🚀 1000+ simultaneous monitored targets"
-        ],
-    tools: ["Docker", "Kubernetes", "ELK Stack", "Kafka", "Redis", "Machine Learning", "DevOps"],
-    tags: language === 'es'
-      ? ["DevOps", "Enterprise Architecture", "ML", "Kubernetes"]
-      : ["DevOps", "Enterprise Architecture", "ML", "Kubernetes"],
-    link: "https://github.com/dphack1987",
-    image: "https://images.pexels.com/photos/1555922/pexels-photo-1555922.jpeg?auto=compress&cs=tinysrgb&w=800"
-  },
-  {
-    id: 7,
-    title: language === 'es' ? "🎯 ApexStrike - Pentesting Tool" : "🎯 ApexStrike - Pentesting Tool",
-    description: language === 'es'
-      ? "Herramienta profesional de pentesting para evaluación de vulnerabilidades en aplicaciones web. Desarrollo en TypeScript con análisis automatizado de seguridad, testing de autenticación y reportes detallados. Demostración de habilidades en pruebas de penetración, análisis de seguridad y desarrollo de herramientas defensivas."
-      : "Professional penetration testing tool for web application vulnerability assessment. TypeScript development with automated security analysis, authentication testing and detailed reports. Demonstration of penetration testing, security analysis and defensive tool development skills.",
-    details: language === 'es'
-      ? [
-          "🔍 Análisis automatizado de vulnerabilidades OWASP Top 10",
-          "🌐 Testing de aplicaciones web (XSS, SQLi, CSRF)",
-          "🔐 Evaluación de autenticación y autorización",
-          "📊 Reportes detallados con recomendaciones de remediation",
-          "⚙️ Integración con herramientas de seguridad (Burpsuite, OWASP ZAP)",
-          "🛡️ Testing de seguridad API RESTful",
-          "🚨 Scanning de configuraciones inseguras"
-        ]
-      : [
-          "🔍 Automated OWASP Top 10 vulnerability analysis",
-          "🌐 Web application testing (XSS, SQLi, CSRF)",
-          "🔐 Authentication and authorization evaluation",
-          "📊 Detailed reports with remediation recommendations",
-          "⚙️ Security tool integration (Burpsuite, OWASP ZAP)",
-          "🛡️ RESTful API security testing",
-          "🚨 Insecure configuration scanning"
-        ],
-    tools: ["TypeScript", "OWASP", "Web Security", "API Security", "Burpsuite", "OWASP ZAP"],
-    tags: language === 'es'
-      ? ["Pentesting", "Web Security", "TypeScript", "OWASP"]
-      : ["Pentesting", "Web Security", "TypeScript", "OWASP"],
-    link: "https://github.com/dphack1987/ApexStrike",
-    image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800"
-  },
-  {
-    id: 8,
-    title: language === 'es' ? "⚔️ Zenythos Sword - Threat Intelligence" : "⚔️ Zenythos Sword - Threat Intelligence",
-    description: language === 'es'
-      ? "Framework de seguridad para análisis y mitigación de amenazas en tiempo real. Desarrollo en Python con herramientas avanzadas de monitoreo, integración SIEM y alertas inteligentes. Demostración de habilidades en threat intelligence, SOC operations y respuesta a incidentes."
-      : "Security framework for real-time threat analysis and mitigation. Python development with advanced monitoring tools, SIEM integration and intelligent alerts. Demonstration of threat intelligence, SOC operations and incident response skills.",
-    details: language === 'es'
-      ? [
-          "🔍 Análisis de amenazas en tiempo real",
-          "🤖 Mitigación automatizada de riesgos",
-          "📊 Monitoreo de actividad sospechosa 24/7",
-          "🔗 Integración con SIEM (Wazuh, Splunk)",
-          "🚨 Alertas inteligentes con ML",
-          "📈 Dashboards de seguridad en tiempo real",
-          "🛡️ Response automation para incidentes",
-          "🔬 Forense digital y log analysis"
-        ]
-      : [
-          "🔍 Real-time threat analysis",
-          "🤖 Automated risk mitigation",
-          "📊 24/7 suspicious activity monitoring",
-          "🔗 SIEM integration (Wazuh, Splunk)",
-          "🚨 Intelligent ML-powered alerts",
-          "📈 Real-time security dashboards",
-          "🛡️ Incident response automation",
-          "🔬 Digital forensics and log analysis"
-        ],
-    tools: ["Python", "SIEM", "Wazuh", "Splunk", "Threat Intelligence", "Incident Response"],
-    tags: language === 'es'
-      ? ["Threat Intelligence", "SOC", "SIEM", "Python"]
-      : ["Threat Intelligence", "SOC", "SIEM", "Python"],
-    link: "https://github.com/dphack1987/zenythos-sword",
-    image: "https://images.pexels.com/photos/106344/pexels-photo-106344.jpeg?auto=compress&cs=tinysrgb&w=800"
-  }
 ];
 
 export default function Projects() {
   const { language, t } = useLanguage();
   const projects = getProjects(language);
+
   return (
-    <section id="projects" className="py-20 bg-gray-50">
+    <section id="projects" className="scroll-mt-20 border-t border-zinc-800 bg-[#070709] py-24">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">{t('projects.title')}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="relative mb-14">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-10 right-0 select-none font-display text-[9rem] leading-none text-white/[0.04] md:text-[12rem]"
+          >
+            04
+          </span>
+          <p className="eyebrow">{"// "}{t('nav.projects')}</p>
+          <h2 className="display-hover relative mt-3 font-display text-5xl uppercase leading-none tracking-tight text-white md:text-7xl">
+            {t('projects.title')}
+          </h2>
+          <span className="rule-gold mt-5" />
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
-            <Card key={project.id} className={`p-6 hover:shadow-lg transition-shadow duration-300 ${project.award ? 'border-4 border-yellow-400 shadow-xl' : ''} ${project.construction ? 'border-4 border-gray-400' : ''} ${project.featured ? 'col-span-1 md:col-span-2 lg:col-span-2 bg-gradient-to-br from-yellow-50 to-orange-50' : ''}`}>
-              <div className="flex flex-col h-full">
-                {project.image && (
-                  <div className={`relative ${project.featured ? 'h-64' : 'h-48'} mb-4 rounded-lg overflow-hidden`}>
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
+            <Card
+              key={project.id}
+              className={`reveal flex flex-col rounded-none border-2 bg-[#0e0e12] p-6 transition-all hover:-translate-y-1 ${
+                project.featured
+                  ? 'border-[#ffd400] bg-gradient-to-br from-[#1c1705] to-[#0e0e12] md:col-span-2'
+                  : project.award
+                    ? 'border-[#ffd400]'
+                    : 'border-zinc-800 hover:border-[#ffd400]'
+              } ${project.construction ? 'border-zinc-700 opacity-90' : ''}`}
+            >
+              {project.image && (
+                <div
+                  className={`relative mb-5 border border-zinc-800 bg-[#f7f1e3] ${
+                    project.featured ? 'h-56' : 'h-40'
+                  }`}
+                >
+                  <Image
+                    src={project.image}
+                    alt={project.imageAlt ?? project.title}
+                    fill
+                    className="object-contain p-3"
+                  />
+                </div>
+              )}
+
+              <div className="mb-3 flex flex-wrap gap-2">
                 {project.featured && (
-                  <div className="mb-3">
-                    <span className="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-4 py-2 rounded-full text-sm font-bold animate-pulse">
-                      💎 PROYECTO ESTRELLA
-                    </span>
-                  </div>
+                  <span className="bg-[#ffd400] px-3 py-1 font-mono text-[11px] font-black uppercase tracking-widest text-black">
+                    {t('projects.star')}
+                  </span>
                 )}
                 {project.award && !project.featured && (
-                  <div className="mb-3">
-                    <span className="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-3 py-1 rounded-full text-xs font-bold">
-                      {t('projects.award')}
-                    </span>
-                  </div>
+                  <span className="border border-[#ffd400] px-3 py-1 font-mono text-[11px] font-black uppercase tracking-widest text-[#ffd400]">
+                    {t('projects.award')}
+                  </span>
                 )}
                 {project.construction && (
-                  <div className="mb-3">
-                    <span className="inline-block bg-gray-400 text-white px-3 py-1 rounded-full text-xs font-bold">
-                      🚧 {language === 'es' ? 'En Construcción' : 'Under Construction'}
-                    </span>
-                  </div>
+                  <span className="border border-zinc-600 px-3 py-1 font-mono text-[11px] font-black uppercase tracking-widest text-zinc-400">
+                    🚧 {language === 'es' ? 'En Construcción' : 'Under Construction'}
+                  </span>
                 )}
-                <h3 className={`font-semibold mb-3 ${project.featured ? 'text-2xl' : 'text-xl'}`}>{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
+              </div>
 
-                <div className="space-y-4 mt-auto">
-                  <div className="space-y-2">
-                    <h4 className="font-medium text-sm">{t('projects.keyFeatures')}:</h4>
-                    <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
-                      {project.details.map((detail, index) => (
-                        <li key={index}>{detail}</li>
-                      ))}
-                    </ul>
-                  </div>
+              <h3
+                className={`font-display uppercase leading-tight tracking-tight text-white ${
+                  project.featured ? 'text-3xl md:text-4xl' : 'text-2xl'
+                }`}
+              >
+                {project.title}
+              </h3>
 
-                  <div className="space-y-2">
-                    <h4 className="font-medium text-sm">{t('projects.toolsUsed')}:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tools.map((tool, index) => (
-                        <span
-                          key={index}
-                          className="px-2 py-1 bg-blue-100 text-blue-600 rounded-full text-xs"
-                        >
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+                {project.description}
+              </p>
 
+              <div className="mt-auto space-y-5 pt-6">
+                <div>
+                  <h4 className="mb-2 font-mono text-[11px] font-bold uppercase tracking-widest text-[#ffd400]">
+                    {t('projects.keyFeatures')}
+                  </h4>
+                  <ul className="space-y-1 text-sm text-zinc-400">
+                    {project.details.map((detail, index) => (
+                      <li key={index} className="flex gap-2">
+                        <span className="text-[#ffd400]">▸</span>
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="mb-2 font-mono text-[11px] font-bold uppercase tracking-widest text-[#ffd400]">
+                    {t('projects.toolsUsed')}
+                  </h4>
                   <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, index) => (
+                    {project.tools.map((tool) => (
                       <span
-                        key={index}
-                        className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                        key={tool}
+                        className="border border-zinc-700 px-2 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-zinc-300"
                       >
-                        {tag}
+                        {tool}
                       </span>
                     ))}
                   </div>
+                </div>
 
-                  <Button asChild variant="outline" className="w-full">
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="bg-zinc-900 px-2 py-1 text-[11px] font-bold uppercase tracking-wider text-zinc-400"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="space-y-2">
+                  <Button
+                    asChild
+                    className="h-12 w-full rounded-none border-2 border-[#ffd400] bg-transparent text-xs font-black uppercase tracking-widest text-[#ffd400] transition-all hover:bg-[#ffd400] hover:text-black"
+                  >
                     <a href={project.link} target="_blank" rel="noopener noreferrer">
-                      {t('projects.viewProject')}
+                      {t('projects.viewProject')} →
                     </a>
                   </Button>
+                  {project.link2 && (
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="h-11 w-full rounded-none border border-zinc-600 bg-transparent text-xs font-black uppercase tracking-widest text-zinc-300 transition-all hover:border-[#ffd400] hover:text-[#ffd400]"
+                    >
+                      <a href={project.link2} target="_blank" rel="noopener noreferrer">
+                        {project.link2Label} →
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </div>
             </Card>
