@@ -39,18 +39,20 @@ const getProjects = (language: 'en' | 'es') => [
   },
   {
     id: 2,
-    title: "Filandia a la Mano",
+    title: language === 'es' ? "Filandia a la Mano - En Construcción" : "Filandia a la Mano - Under Construction",
     description: language === 'es'
-      ? "Plataforma de turismo digital para Filandia, Quindío con tecnología moderna, mapa interactivo y SEO optimization."
-      : "Digital tourism platform for Filandia, Quindío with modern technology, interactive map and SEO optimization.",
+      ? "Plataforma de turismo digital para Filandia, Quindío con tecnología moderna, mapa interactivo y SEO optimization. Proyecto actualmente en desarrollo."
+      : "Digital tourism platform for Filandia, Quindío with modern technology, interactive map and SEO optimization. Currently under development.",
     details: language === 'es'
       ? [
+          "🚧 En construcción",
           "Plataforma de turismo digital moderna",
           "Mapa interactivo avanzado",
           "SEO optimization",
           "Integración local de negocios"
         ]
       : [
+          "🚧 Under Construction",
           "Modern digital tourism platform",
           "Advanced interactive map",
           "SEO optimization",
@@ -58,9 +60,10 @@ const getProjects = (language: 'en' | 'es') => [
         ],
     tools: ["TypeScript", "Next.js", "React", "SEO"],
     tags: language === 'es'
-      ? ["Turismo Digital", "TypeScript", "Next.js"]
-      : ["Digital Tourism", "TypeScript", "Next.js"],
-    link: "https://github.com/dphack1987/filandialamano.com"
+      ? ["En Construcción", "Turismo Digital", "TypeScript"]
+      : ["Under Construction", "Digital Tourism", "TypeScript"],
+    link: "https://github.com/dphack1987/filandialamano.com",
+    construction: true
   },
   {
     id: 3,
@@ -177,12 +180,19 @@ export default function Projects() {
         <h2 className="text-3xl font-bold mb-8 text-center">{t('projects.title')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
-            <Card key={project.id} className={`p-6 hover:shadow-lg transition-shadow duration-300 ${project.award ? 'border-4 border-yellow-400' : ''}`}>
+            <Card key={project.id} className={`p-6 hover:shadow-lg transition-shadow duration-300 ${project.award ? 'border-4 border-yellow-400' : ''} ${project.construction ? 'border-4 border-gray-400' : ''}`}>
               <div className="flex flex-col h-full">
                 {project.award && (
                   <div className="mb-3">
                     <span className="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-3 py-1 rounded-full text-xs font-bold">
                       {t('projects.award')}
+                    </span>
+                  </div>
+                )}
+                {project.construction && (
+                  <div className="mb-3">
+                    <span className="inline-block bg-gray-400 text-white px-3 py-1 rounded-full text-xs font-bold">
+                      🚧 {language === 'es' ? 'En Construcción' : 'Under Construction'}
                     </span>
                   </div>
                 )}
