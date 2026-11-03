@@ -59,7 +59,8 @@ export default function Navbar() {
     <button
       onClick={() => setLanguage(lang)}
       aria-pressed={language === lang}
-      className={`border px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest transition-colors ${
+      aria-label={`Cambiar a ${lang === 'es' ? 'español' : 'inglés'}`}
+      className={`border px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest transition-colors focus:outline-none focus:ring-2 focus:ring-[#ffd400] focus:ring-offset-2 focus:ring-offset-black ${
         language === lang
           ? 'border-[#ffd400] bg-[#ffd400] text-black'
           : 'border-zinc-700 text-zinc-400 hover:border-[#ffd400] hover:text-[#ffd400]'
@@ -121,7 +122,8 @@ export default function Navbar() {
               variant="ghost"
               size="sm"
               onClick={handleShare}
-              className="ml-2 text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-[#ffd400]"
+              aria-label={t('share.title')}
+              className="ml-2 text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-[#ffd400] focus:outline-none focus:ring-2 focus:ring-[#ffd400] focus:ring-offset-2 focus:ring-offset-black"
             >
               {t('share.title')}
             </Button>
@@ -135,8 +137,9 @@ export default function Navbar() {
 
           {/* Mobile toggle */}
           <button
-            className="p-2 text-white md:hidden"
-            aria-label="Menu"
+            className="p-2 text-white md:hidden focus:outline-none focus:ring-2 focus:ring-[#ffd400] focus:ring-offset-2 focus:ring-offset-black"
+            aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <svg

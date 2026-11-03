@@ -24,9 +24,9 @@ export default function Typewriter({
         setDeleting(true);
       } else if (deleting && length === 0) {
         setDeleting(false);
-        setIndex((i) => i + 1);
+        setIndex((i: number) => i + 1);
       } else {
-        setLength((l) => (deleting ? l - 1 : l + 1));
+        setLength((l: number) => (deleting ? l - 1 : l + 1));
       }
     }, delay);
 

@@ -9,6 +9,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const CONTACT_EMAIL = "parraprietodavid87@gmail.com";
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export default function Contact() {
   const { t, language } = useLanguage();
   const [formData, setFormData] = useState({
@@ -16,12 +18,34 @@ export default function Contact() {
     email: "",
     message: "",
   });
-  const [status, setStatus] = useState<"idle" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "error" | "success">("idle");
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
+
+  const validateForm = () => {
+    const newErrors: { name?: string; email?: string; message?: string } = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = language === 'es' ? "El nombre es requerido" : "Name is required";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = language === 'es' ? "El correo es requerido" : "Email is required";
+    } else if (!EMAIL_REGEX.test(formData.email)) {
+      newErrors.email = language === 'es' ? "Correo inválido" : "Invalid email";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = language === 'es' ? "El mensaje es requerido" : "Message is required";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+    if (!validateForm()) {
       setStatus("error");
       return;
     }
@@ -36,14 +60,20 @@ export default function Contact() {
         : `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n`) +
       formData.message;
 
-    setStatus("idle");
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
+    setStatus("success");
+    setTimeout(() => {
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+        subject
+      )}&body=${encodeURIComponent(body)}`;
+    }, 500);
   };
 
-  const fieldClass =
-    'h-14 rounded-none border-2 border-zinc-700 bg-black px-4 text-base text-white placeholder:text-zinc-600 focus:border-[#ffd400] focus:ring-0';
+  const getFieldClass = (hasError: boolean) =>
+    `h-14 rounded-none border-2 bg-black px-4 text-base text-white placeholder:text-zinc-600 focus:ring-0 ${
+      hasError
+        ? 'border-red-500 focus:border-red-500'
+        : 'border-zinc-700 focus:border-[#ffd400]'
+    }`;
 
   return (
     <section id="contact" className="scroll-mt-20 border-t-2 border-[#ffd400] bg-[#0a0a0c] py-24">
@@ -80,10 +110,20 @@ export default function Contact() {
                       type="text"
                       placeholder={t('contact.name')}
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) => {
+                        setFormData({ ...formData, name: e.target.value });
+                        if (errors.name) setErrors({ ...errors, name: undefined });
+                      }}
                       required
-                      className={fieldClass}
+                      className={getFieldClass(!!errors.name)}
+                      aria-invalid={!!errors.name}
+                      aria-describedby={errors.name ? "name-error" : undefined}
                     />
+                    {errors.name && (
+                      <p id="name-error" className="mt-1 font-mono text-[10px] font-bold uppercase tracking-widest text-red-400" role="alert">
+                        {errors.name}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <label
@@ -97,10 +137,20 @@ export default function Contact() {
                       type="email"
                       placeholder={t('contact.email')}
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={(e) => {
+                        setFormData({ ...formData, email: e.target.value });
+                        if (errors.email) setErrors({ ...errors, email: undefined });
+                      }}
                       required
-                      className={fieldClass}
+                      className={getFieldClass(!!errors.email)}
+                      aria-invalid={!!errors.email}
+                      aria-describedby={errors.email ? "email-error" : undefined}
                     />
+                    {errors.email && (
+                      <p id="email-error" className="mt-1 font-mono text-[10px] font-bold uppercase tracking-widest text-red-400" role="alert">
+                        {errors.email}
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -115,10 +165,24 @@ export default function Contact() {
                     id="message"
                     placeholder={t('contact.message')}
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onChange={(e) => {
+                      setFormData({ ...formData, message: e.target.value });
+                      if (errors.message) setErrors({ ...errors, message: undefined });
+                    }}
                     required
-                    className="min-h-[180px] rounded-none border-2 border-zinc-700 bg-black px-4 py-3 text-base text-white placeholder:text-zinc-600 focus:border-[#ffd400] focus:ring-0"
+                    className={`min-h-[180px] rounded-none border-2 bg-black px-4 py-3 text-base text-white placeholder:text-zinc-600 focus:ring-0 ${
+                      errors.message
+                        ? 'border-red-500 focus:border-red-500'
+                        : 'border-zinc-700 focus:border-[#ffd400]'
+                    }`}
+                    aria-invalid={!!errors.message}
+                    aria-describedby={errors.message ? "message-error" : undefined}
                   />
+                  {errors.message && (
+                    <p id="message-error" className="mt-1 font-mono text-[10px] font-bold uppercase tracking-widest text-red-400" role="alert">
+                      {errors.message}
+                    </p>
+                  )}
                 </div>
 
                 <Button
@@ -132,14 +196,14 @@ export default function Contact() {
                   {t('contact.emailNotice')}
                 </p>
 
-                {status === "error" && (
+                {status === "success" && (
                   <p
-                    className="border border-red-500 bg-red-500/10 p-3 text-center font-mono text-xs font-bold uppercase tracking-widest text-red-400"
-                    role="alert"
+                    className="border border-green-500 bg-green-500/10 p-3 text-center font-mono text-xs font-bold uppercase tracking-widest text-green-400"
+                    role="status"
                   >
                     {language === 'es'
-                      ? "Completa todos los campos antes de enviar."
-                      : "Fill in all fields before sending."}
+                      ? "Abriendo cliente de correo..."
+                      : "Opening email client..."}
                   </p>
                 )}
               </form>

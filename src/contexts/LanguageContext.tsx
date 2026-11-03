@@ -211,7 +211,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     if (sub === undefined) {
       return typeof node === 'string' ? node : key;
     }
-    const value = (node as Record<string, string | undefined>)[sub];
+    const value = (node as Record<string, string>)[sub];
     return value ?? key;
   };
 

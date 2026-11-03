@@ -92,23 +92,23 @@ export default function Home() {
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Button
                   asChild
-                  className="h-14 rounded-none border-2 border-[#ffd400] bg-[#ffd400] px-10 text-sm font-black uppercase tracking-widest text-black transition-all hover:-translate-y-1 hover:bg-black hover:text-[#ffd400] md:text-base"
+                  className="h-14 rounded-none border-2 border-[#ffd400] bg-[#ffd400] px-10 text-sm font-black uppercase tracking-widest text-black transition-all hover:-translate-y-1 hover:bg-black hover:text-[#ffd400] md:text-base focus:outline-none focus:ring-2 focus:ring-[#ffd400] focus:ring-offset-2 focus:ring-offset-black"
                 >
                   <Link href="#projects">{t('hero.cta')}</Link>
                 </Button>
                 <Button
                   asChild
                   variant="outline"
-                  className="h-14 rounded-none border-2 border-zinc-600 bg-transparent px-10 text-sm font-black uppercase tracking-widest text-white transition-all hover:-translate-y-1 hover:border-[#ffd400] hover:text-[#ffd400] md:text-base"
+                  className="h-14 rounded-none border-2 border-zinc-600 bg-transparent px-10 text-sm font-black uppercase tracking-widest text-white transition-all hover:-translate-y-1 hover:border-[#ffd400] hover:text-[#ffd400] md:text-base focus:outline-none focus:ring-2 focus:ring-[#ffd400] focus:ring-offset-2 focus:ring-offset-black"
                 >
                   <Link href="#awards">{t('hero.awardsCta')}</Link>
                 </Button>
                 <Button
                   asChild
                   variant="outline"
-                  className="h-14 rounded-none border-2 border-zinc-600 bg-transparent px-10 text-sm font-black uppercase tracking-widest text-white transition-all hover:-translate-y-1 hover:border-[#ffd400] hover:text-[#ffd400] md:text-base"
+                  className="h-14 rounded-none border-2 border-zinc-600 bg-transparent px-10 text-sm font-black uppercase tracking-widest text-white transition-all hover:-translate-y-1 hover:border-[#ffd400] hover:text-[#ffd400] md:text-base focus:outline-none focus:ring-2 focus:ring-[#ffd400] focus:ring-offset-2 focus:ring-offset-black"
                 >
-                  <a href="/cv/David-Parra-CV.pdf" download>{t('cv.download')}</a>
+                  <a href="/cv/David-Parra-CV.pdf" download aria-label={t('cv.download')}>{t('cv.download')}</a>
                 </Button>
               </div>
             </div>
@@ -209,6 +209,7 @@ export default function Home() {
                 fill
                 className="object-contain p-4"
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
               />
             </div>
             <div className="p-8 md:p-12">

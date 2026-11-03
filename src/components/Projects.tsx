@@ -282,6 +282,8 @@ export default function Projects() {
                     alt={project.imageAlt ?? project.title}
                     fill
                     className="object-contain p-3"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
               )}
@@ -361,9 +363,9 @@ export default function Projects() {
                 <div className="space-y-2">
                   <Button
                     asChild
-                    className="h-12 w-full rounded-none border-2 border-[#ffd400] bg-transparent text-xs font-black uppercase tracking-widest text-[#ffd400] transition-all hover:bg-[#ffd400] hover:text-black"
+                    className="h-12 w-full rounded-none border-2 border-[#ffd400] bg-transparent text-xs font-black uppercase tracking-widest text-[#ffd400] transition-all hover:bg-[#ffd400] hover:text-black focus:outline-none focus:ring-2 focus:ring-[#ffd400] focus:ring-offset-2 focus:ring-offset-black"
                   >
-                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`${t('projects.viewProject')}: ${project.title}`}>
                       {t('projects.viewProject')} →
                     </a>
                   </Button>
@@ -371,9 +373,9 @@ export default function Projects() {
                     <Button
                       asChild
                       variant="outline"
-                      className="h-11 w-full rounded-none border border-zinc-600 bg-transparent text-xs font-black uppercase tracking-widest text-zinc-300 transition-all hover:border-[#ffd400] hover:text-[#ffd400]"
+                      className="h-11 w-full rounded-none border border-zinc-600 bg-transparent text-xs font-black uppercase tracking-widest text-zinc-300 transition-all hover:border-[#ffd400] hover:text-[#ffd400] focus:outline-none focus:ring-2 focus:ring-[#ffd400] focus:ring-offset-2 focus:ring-offset-black"
                     >
-                      <a href={project.link2} target="_blank" rel="noopener noreferrer">
+                      <a href={project.link2} target="_blank" rel="noopener noreferrer" aria-label={`${project.link2Label}: ${project.title}`}>
                         {project.link2Label} →
                       </a>
                     </Button>
