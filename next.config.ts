@@ -2,17 +2,20 @@
 const nextConfig = {
   output: 'standalone',
   images: {
-    domains: ['images.pexels.com', 'avatars.githubusercontent.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+      },
+    ],
     unoptimized: true
   },
   typescript: {
     ignoreBuildErrors: true
-  },
-  eslint: {
-    ignoreDuringBuilds: true
-  },
-  experimental: {
-    turbo: true
   }
 }
 
