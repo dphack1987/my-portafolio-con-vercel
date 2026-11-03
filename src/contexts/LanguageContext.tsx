@@ -75,6 +75,9 @@ const es = {
     businesses: "Negocios integrados",
     pages: "Páginas pSEO generadas",
     languages: "Idiomas en producción"
+  },
+  cv: {
+    download: "Descargar CV"
   }
 } as const;
 
@@ -154,6 +157,9 @@ const en: {
     businesses: "Integrated businesses",
     pages: "Generated pSEO pages",
     languages: "Languages in production"
+  },
+  cv: {
+    download: "Download CV"
   }
 };
 

@@ -103,6 +103,13 @@ export default function Home() {
                 >
                   <Link href="#awards">{t('hero.awardsCta')}</Link>
                 </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="h-14 rounded-none border-2 border-zinc-600 bg-transparent px-10 text-sm font-black uppercase tracking-widest text-white transition-all hover:-translate-y-1 hover:border-[#ffd400] hover:text-[#ffd400] md:text-base"
+                >
+                  <a href="/cv/David-Parra-CV.pdf" download>{t('cv.download')}</a>
+                </Button>
               </div>
             </div>
 

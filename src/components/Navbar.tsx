@@ -104,6 +104,14 @@ export default function Navbar() {
               <Link href="/#contact">{t('nav.contact')}</Link>
             </Button>
 
+            <Button
+              asChild
+              variant="ghost"
+              className="ml-2 rounded-none border-2 border-zinc-700 px-5 text-xs font-black uppercase tracking-widest text-zinc-300 hover:border-[#ffd400] hover:text-[#ffd400]"
+            >
+              <a href="/cv/David-Parra-CV.pdf" download>{t('cv.download')}</a>
+            </Button>
+
             <div className="ml-4 flex items-center gap-2 border-l border-zinc-800 pl-4">
               {languageButton('es')}
               {languageButton('en')}
@@ -188,6 +196,14 @@ export default function Navbar() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 <Link href="/#contact">{t('nav.contact')}</Link>
+              </Button>
+              <Button
+                asChild
+                variant="ghost"
+                className="w-full rounded-none border-2 border-zinc-700 text-xs font-black uppercase tracking-widest text-zinc-300 hover:border-[#ffd400] hover:text-[#ffd400]"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <a href="/cv/David-Parra-CV.pdf" download>{t('cv.download')}</a>
               </Button>
             </div>
           </div>
