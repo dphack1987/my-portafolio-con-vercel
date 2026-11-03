@@ -176,39 +176,66 @@ const getProjects = (language: 'en' | 'es'): Project[] => [
   },
   {
     id: 6,
-    title: language === 'es' ? "Ciberseguridad - Ataque y Defensa" : "Cybersecurity - Attack & Defense",
+    title: language === 'es' ? "ApexStrike - Framework de Pentesting" : "ApexStrike - Pentesting Framework",
     description: language === 'es'
-      ? "Dúo de herramientas propias: ApexStrike (framework de pentesting con escaneo de puertos, análisis web/API/IoT, motor de exploits y automatización CI/CD, licencia MIT) y Zenythos Sword (framework de threat intelligence con integración SIEM, alertas con ML, dashboards en tiempo real y respuesta a incidentes)."
-      : "Own tool duo: ApexStrike (pentesting framework with port scanning, web/API/IoT analysis, exploit engine and CI/CD automation, MIT license) and Zenythos Sword (threat intelligence framework with SIEM integration, ML alerts, real-time dashboards and incident response).",
+      ? "Framework profesional de pentesting con escaneo de puertos, análisis web/API/IoT, motor de exploits y automatización CI/CD. Diseñado para evaluación ofensiva automatizada con integración de herramientas de seguridad estándar y generación de reportes de vulnerabilidades. Licencia MIT con documentación bilingüe."
+      : "Professional pentesting framework with port scanning, web/API/IoT analysis, exploit engine and CI/CD automation. Designed for automated offensive security assessment with standard security tool integration and vulnerability report generation. MIT license with bilingual documentation.",
     details: language === 'es'
       ? [
-          "🛡️ ApexStrike: pentesting web, API e IoT",
+          "🛡️ Pentesting web, API e IoT automatizado",
           "🔍 Escaneo de puertos y motor de exploits",
           "⚙️ Automatización con CI/CD y escaneo continuo",
-          "⚔️ Zenythos Sword: threat intelligence en tiempo real",
-          "🔗 Integración SIEM (Wazuh, Splunk) y alertas ML",
-          "🔬 Forense digital, log analysis y respuesta a incidentes",
+          "📊 Generación de reportes de vulnerabilidades",
+          "🔧 Integración con Nmap, Metasploit y Burpsuite",
           "📜 Licencia MIT + documentación bilingüe"
         ]
       : [
-          "🛡️ ApexStrike: web, API and IoT pentesting",
+          "🛡️ Automated web, API and IoT pentesting",
           "🔍 Port scanning and exploit engine",
           "⚙️ CI/CD automation and continuous scanning",
-          "⚔️ Zenythos Sword: real-time threat intelligence",
-          "🔗 SIEM integration (Wazuh, Splunk) + ML alerts",
-          "🔬 Digital forensics, log analysis and incident response",
+          "📊 Vulnerability report generation",
+          "🔧 Integration with Nmap, Metasploit and Burpsuite",
           "📜 MIT license + bilingual documentation"
         ],
-    tools: ["Python", "OWASP", "SIEM", "Threat Intelligence", "Pentesting", "ML"],
+    tools: ["Python", "OWASP", "Nmap", "Metasploit", "Burpsuite", "Pentesting"],
     tags: language === 'es'
-      ? ["Ataque", "Defensa", "Pentesting", "Threat Intel"]
-      : ["Offense", "Defense", "Pentesting", "Threat Intel"],
+      ? ["Ataque", "Pentesting", "OWASP", "Framework"]
+      : ["Offense", "Pentesting", "OWASP", "Framework"],
     link: "https://github.com/dphack1987/ApexStrike",
-    link2: "https://github.com/dphack1987/zenythos-sword",
-    link2Label: "Zenythos Sword",
   },
   {
     id: 7,
+    title: language === 'es' ? "Zenythos Sword - Threat Intelligence" : "Zenythos Sword - Threat Intelligence",
+    description: language === 'es'
+      ? "Framework de threat intelligence con integración SIEM, alertas con Machine Learning, dashboards en tiempo real y respuesta a incidentes automatizada. Proporciona monitoreo continuo de amenazas, correlación de eventos y forense digital con integración en Wazuh, Splunk y TheHive."
+      : "Threat intelligence framework with SIEM integration, ML-powered alerts, real-time dashboards and automated incident response. Provides continuous threat monitoring, event correlation and digital forensics with integration in Wazuh, Splunk and TheHive.",
+    details: language === 'es'
+      ? [
+          "⚔️ Threat intelligence en tiempo real",
+          "🔗 Integración SIEM (Wazuh, Splunk, TheHive)",
+          "🤖 Alertas con Machine Learning",
+          "📊 Dashboards interactivos de monitoreo",
+          "🔬 Forense digital y log analysis",
+          "🚀 Respuesta a incidentes automatizada",
+          "📈 Correlación de eventos y detección de anomalías"
+        ]
+      : [
+          "⚔️ Real-time threat intelligence",
+          "🔗 SIEM integration (Wazuh, Splunk, TheHive)",
+          "🤖 ML-powered alerts",
+          "📊 Interactive monitoring dashboards",
+          "🔬 Digital forensics and log analysis",
+          "🚀 Automated incident response",
+          "📈 Event correlation and anomaly detection"
+        ],
+    tools: ["Python", "SIEM", "Threat Intelligence", "ML", "MISP", "OpenCTI", "Wazuh"],
+    tags: language === 'es'
+      ? ["Defensa", "Threat Intel", "SIEM", "ML"]
+      : ["Defense", "Threat Intel", "SIEM", "ML"],
+    link: "https://github.com/dphack1987/zenythos-sword",
+  },
+  {
+    id: 8,
     title: language === 'es' ? "Antidron System - Detección y Neutralización" : "Antidron System - Detection & Neutralization",
     description: language === 'es'
       ? "Sistema de detección y neutralización de drones: integración hardware/software con microcontroladores, sensores electrónicos y comunicación RF. Desarrollo en Python para control de sensores y actuadores, con aplicaciones en seguridad física y defensa. Investigación activa (última actualización 2026)."
