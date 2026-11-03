@@ -45,21 +45,12 @@ const getCertifications = (language: 'en' | 'es'): Certification[] => [
   },
   {
     id: 4,
-    title: language === 'es' ? "Diploma en Publicidad" : "Diploma in Advertising",
-    institution: language === 'es' ? "Universidad" : "University",
-    year: language === 'es' ? "N/A" : "N/A",
+    title: language === 'es' ? "Técnico en Publicidad y Mercadeo" : "Technician in Advertising and Marketing",
+    institution: language === 'es' ? "Escuela de Administración del Quindío" : "School of Administration of Quindío",
+    year: "2007",
     image: "/media/diploma-publicidad_trim.png",
-    imageAlt: language === 'es' ? "Diploma en Publicidad" : "Diploma in Advertising",
-    credential: language === 'es' ? "Diploma Académico" : "Academic Diploma"
-  },
-  {
-    id: 5,
-    title: language === 'es' ? "Carta TU RECOBRO" : "TU RECOBRO Letter",
-    institution: language === 'es' ? "Gobierno" : "Government",
-    year: language === 'es' ? "N/A" : "N/A",
-    image: "/media/carta-turecobro_trim.png",
-    imageAlt: language === 'es' ? "Carta de TU RECOBRO" : "TU RECOBRO Letter",
-    credential: language === 'es' ? "Reconocimiento Oficial" : "Official Recognition"
+    imageAlt: language === 'es' ? "Diploma Técnico en Publicidad y Mercadeo" : "Technician Diploma in Advertising and Marketing",
+    credential: language === 'es' ? "Título Técnico Profesional" : "Professional Technician Degree"
   }
 ];
 

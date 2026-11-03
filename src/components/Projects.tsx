@@ -263,7 +263,7 @@ export default function Projects() {
           {projects.map((project) => (
             <Card
               key={project.id}
-              className={`reveal flex flex-col rounded-none border-2 bg-[#0e0e12] p-6 transition-all hover:-translate-y-1 ${
+              className={`reveal flex flex-col rounded-none border-2 bg-[#0e0e12] p-5 transition-all hover:-translate-y-1 ${
                 project.featured
                   ? 'border-[#ffd400] bg-gradient-to-br from-[#1c1705] to-[#0e0e12] md:col-span-2'
                   : project.award
@@ -273,8 +273,8 @@ export default function Projects() {
             >
               {project.image && (
                 <div
-                  className={`relative mb-5 border border-zinc-800 bg-[#f7f1e3] ${
-                    project.featured ? 'h-56' : 'h-40'
+                  className={`relative mb-3 border border-zinc-800 bg-[#f7f1e3] ${
+                    project.featured ? 'h-48' : 'h-36'
                   }`}
                 >
                   <Image
@@ -288,7 +288,7 @@ export default function Projects() {
                 </div>
               )}
 
-              <div className="mb-3 flex flex-wrap gap-2">
+              <div className="mb-2 flex flex-wrap gap-2">
                 {project.featured && (
                   <span className="bg-[#ffd400] px-3 py-1 font-mono text-[11px] font-black uppercase tracking-widest text-black">
                     {t('projects.star')}
@@ -314,16 +314,16 @@ export default function Projects() {
                 {project.title}
               </h3>
 
-              <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
                 {project.description}
               </p>
 
-              <div className="mt-auto space-y-5 pt-6">
+              <div className="mt-auto space-y-3 pt-4">
                 <div>
-                  <h4 className="mb-2 font-mono text-[11px] font-bold uppercase tracking-widest text-[#ffd400]">
+                  <h4 className="mb-1.5 font-mono text-[11px] font-bold uppercase tracking-widest text-[#ffd400]">
                     {t('projects.keyFeatures')}
                   </h4>
-                  <ul className="space-y-1 text-sm text-zinc-400">
+                  <ul className="space-y-0.5 text-sm text-zinc-400">
                     {project.details.map((detail, index) => (
                       <li key={index} className="flex gap-2">
                         <span className="text-[#ffd400]">▸</span>
@@ -334,7 +334,7 @@ export default function Projects() {
                 </div>
 
                 <div>
-                  <h4 className="mb-2 font-mono text-[11px] font-bold uppercase tracking-widest text-[#ffd400]">
+                  <h4 className="mb-1.5 font-mono text-[11px] font-bold uppercase tracking-widest text-[#ffd400]">
                     {t('projects.toolsUsed')}
                   </h4>
                   <div className="flex flex-wrap gap-2">
