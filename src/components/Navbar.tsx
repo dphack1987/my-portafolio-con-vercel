@@ -42,6 +42,9 @@ export default function Navbar() {
             <Link href="/#about" className="text-gray-700 hover:text-blue-600">
               {t('nav.about')}
             </Link>
+            <Link href="/#awards" className="text-gray-700 hover:text-blue-600">
+              {t('nav.awards')}
+            </Link>
             <Link href="/#projects" className="text-gray-700 hover:text-blue-600">
               {t('nav.projects')}
             </Link>
@@ -118,6 +121,13 @@ export default function Navbar() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('nav.about')}
+              </Link>
+              <Link
+                href="/#awards"
+                className="text-gray-700 hover:text-blue-600"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {t('nav.awards')}
               </Link>
               <Link
                 href="/#projects"

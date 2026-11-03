@@ -7,8 +7,8 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "David Parra - Arquitecto de Seguridad Enterprise | PREMIADO 2026",
-  description: "Desarrollador Full-Stack y Arquitecto de Seguridad Enterprise. GANADOR DEL PREMIO MEJOR PROYECTO DIGITAL COLOMBIA 2026 por salentoalamano.com. 45+ proyectos en GitHub.",
+  title: "David Parra - WSA 2026 Nominee | Enterprise Security Architect",
+  description: "Portfolio de David Parra - Arquitecto de Seguridad Enterprise nominado al WSA 2026. Experto en desarrollo de soluciones digitales innovadoras en Negocios y Comercio.",
 };
 
 export default function RootLayout({

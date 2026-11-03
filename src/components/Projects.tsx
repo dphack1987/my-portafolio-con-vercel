@@ -7,34 +7,35 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const getProjects = (language: 'en' | 'es') => [
   {
     id: 1,
-    title: language === 'es' ? "Salento a la Mano - PREMIADO" : "Salento a la Mano - AWARD WINNER",
+    title: language === 'es' ? "Salento a la Mano - NOMINADO WSA 2026" : "Salento a la Mano - WSA 2026 NOMINEE",
     description: language === 'es'
-      ? "GANADOR DEL PREMIO MEJOR PROYECTO DIGITAL COLOMBIA 2026 - Categoría Comercial y de Negocios. Plataforma de turismo digital líder con 70+ negocios verificados, guía bilingüe ES/EN y SEO avanzado."
-      : "WINNER OF BEST DIGITAL PROJECT COLOMBIA 2026 - Commercial and Business Category. Leading digital tourism platform with 70+ verified businesses, bilingual guide ES/EN and advanced SEO.",
+      ? "NOMINADO AL PREMIO WSA 2026 como la solución digital más innovadora en Negocios y Comercio de Colombia (24ª edición). Plataforma de turismo digital líder con 70+ negocios verificados, guía bilingüe ES/EN y SEO avanzado."
+      : "WSA 2026 NOMINEE as the most innovative digital solution in Business & Commerce in Colombia (24th edition). Leading digital tourism platform with 70+ verified businesses, bilingual guide ES/EN and advanced SEO.",
     details: language === 'es'
       ? [
-          "PREMIADO Mejor Proyecto Digital Colombia 2026",
+          "🌟 NOMINADO WSA 2026 - Categoría Negocios y Comercio",
           "70+ negocios integrados verificados",
           "Guía bilingüe Español/Inglés",
           "SEO avanzado con posicionamiento orgánico",
-          "545+ commits de desarrollo",
-          "2,500+ palmas de cera protegidas",
-          "15 km de senderos mantenidos"
+          "Sistema de reservas en tiempo real",
+          "Integración con pagos electrónicos",
+          "Mapa interactivo de la región"
         ]
       : [
-          "AWARDED Best Digital Project Colombia 2026",
+          "🌟 WSA 2026 NOMINEE - Business & Commerce Category",
           "70+ integrated verified businesses",
           "Bilingual guide Spanish/English",
           "Advanced SEO with organic positioning",
-          "545+ development commits",
-          "2,500+ wax palms protected",
-          "15 km of maintained trails"
+          "Real-time booking system",
+          "Electronic payment integration",
+          "Interactive regional map"
         ],
     tools: ["React", "Next.js", "TypeScript", "SEO", "CI/CD"],
     tags: language === 'es'
-      ? ["Premiado", "Turismo Digital", "SEO", "React"]
-      : ["Award Winner", "Digital Tourism", "SEO", "React"],
-    link: "https://www.salentoalamano.com"
+      ? ["WSA 2026 NOMINADO", "Turismo Digital", "SEO", "React"]
+      : ["WSA 2026 NOMINEE", "Digital Tourism", "SEO", "React"],
+    link: "https://www.salentoalamano.com",
+    award: true
   },
   {
     id: 2,
@@ -176,11 +177,18 @@ export default function Projects() {
         <h2 className="text-3xl font-bold mb-8 text-center">{t('projects.title')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
-            <Card key={project.id} className="p-6 hover:shadow-lg transition-shadow duration-300">
+            <Card key={project.id} className={`p-6 hover:shadow-lg transition-shadow duration-300 ${project.award ? 'border-4 border-yellow-400' : ''}`}>
               <div className="flex flex-col h-full">
+                {project.award && (
+                  <div className="mb-3">
+                    <span className="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-3 py-1 rounded-full text-xs font-bold">
+                      {t('projects.award')}
+                    </span>
+                  </div>
+                )}
                 <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
                 <p className="text-gray-600 mb-4">{project.description}</p>
-                
+
                 <div className="space-y-4 mt-auto">
                   <div className="space-y-2">
                     <h4 className="font-medium text-sm">{t('projects.keyFeatures')}:</h4>
@@ -190,7 +198,7 @@ export default function Projects() {
                       ))}
                     </ul>
                   </div>
-                  
+
                   <div className="space-y-2">
                     <h4 className="font-medium text-sm">{t('projects.toolsUsed')}:</h4>
                     <div className="flex flex-wrap gap-2">

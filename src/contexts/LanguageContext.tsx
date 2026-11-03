@@ -16,16 +16,19 @@ const translations = {
       about: "Acerca de",
       projects: "Proyectos",
       contact: "Contacto",
-      skills: "Habilidades"
+      skills: "Habilidades",
+      awards: "Premios"
     },
     hero: {
       title: "David Parra",
-      subtitle: "Arquitecto de Seguridad Enterprise | Experto SEO | PREMIADO MEJOR PROYECTO DIGITAL COLOMBIA 2026",
-      cta: "Conoce más"
+      subtitle: "NOMINADO WSA 2026 | Arquitecto de Seguridad Enterprise | Desarrollador Full-Stack",
+      award: "🌟 NOMINADO: World Summit Awards 2026 - Categoría Negocios y Comercio",
+      cta: "Ver Mis Proyectos"
     },
     about: {
       title: "Acerca de Mí",
-      description: "Desarrollador Full-Stack y Arquitecto de Seguridad Enterprise con experiencia demostrada en desarrollo de aplicaciones escalables, SEO avanzado y ciberseguridad a nivel profesional. GANADOR DEL PREMIO MEJOR PROYECTO DIGITAL EN CATEGORÍA COMERCIAL Y DE NEGOCIOS EN COLOMBIA 2026 por salentoalamano.com. Experto en arquitecturas de 7 capas enterprise, ELK Stack, Docker/Kubernetes, Machine Learning para seguridad y desarrollo de frameworks. 45+ proyectos en GitHub."
+      description: "Arquitecto de Seguridad Enterprise y Desarrollador Full-Stack con reconocimiento internacional. NOMINADO AL PREMIO WSA 2026 por salentoalamano.com como la solución digital más innovadora en Negocios y Comercio de Colombia (24ª edición). Experto en arquitecturas de 7 capas enterprise, ELK Stack, Docker/Kubernetes, Machine Learning para seguridad y desarrollo de frameworks. Amplia experiencia en desarrollo de soluciones escalables con impacto real en seguridad y turismo digital.",
+      awardHighlight: "Nominación Internacional: WSA 2026 - Categoría Negocios y Comercio"
     },
     skills: {
       title: "Habilidades y Experiencia",
@@ -38,7 +41,15 @@ const translations = {
       title: "Proyectos Destacados",
       viewProject: "Ver Proyecto",
       keyFeatures: "Características Principales",
-      toolsUsed: "Herramientas Utilizadas"
+      toolsUsed: "Herramientas Utilizadas",
+      award: "🌟 NOMINADO WSA 2026"
+    },
+    awards: {
+      title: "Premios y Reconocimientos",
+      wsa2026: "World Summit Awards 2026 - 24ª Edición",
+      wsaCategory: "Categoría: Negocios y Comercio",
+      wsaProject: "Proyecto Nominado: salentoalamano.com",
+      wsaDescription: "Nominado como la solución digital más innovadora en Negocios y Comercio de Colombia. Reconocimiento global por el desarrollo de plataformas escalables que conectan miles de turistas con la cultura cafetera colombiana."
     },
     contact: {
       title: "Contáctame",
@@ -58,16 +69,19 @@ const translations = {
       about: "About",
       projects: "Projects",
       contact: "Contact",
-      skills: "Skills"
+      skills: "Skills",
+      awards: "Awards"
     },
     hero: {
       title: "David Parra",
-      subtitle: "Cybersecurity Specialist | Full-Stack Developer | Security Researcher",
-      cta: "Learn More"
+      subtitle: "WSA 2026 NOMINEE | Enterprise Security Architect | Full-Stack Developer",
+      award: "🌟 NOMINEE: World Summit Awards 2026 - Business & Commerce Category",
+      cta: "View My Projects"
     },
     about: {
       title: "About Me",
-      description: "Full-Stack Developer and Cybersecurity Specialist with expertise in developing secure, scalable applications. Specializing in penetration testing, vulnerability assessment, and secure application development."
+      description: "Enterprise Security Architect and Full-Stack Developer with international recognition. WSA 2026 NOMINEE for salentoalamano.com as the most innovative digital solution in Business & Commerce in Colombia (24th edition). Expert in 7-layer enterprise architectures, ELK Stack, Docker/Kubernetes, Machine Learning for security, and framework development. Extensive experience in developing scalable solutions with real impact on security and digital tourism.",
+      awardHighlight: "International Nomination: WSA 2026 - Business & Commerce Category"
     },
     skills: {
       title: "Skills & Expertise",
@@ -80,7 +94,15 @@ const translations = {
       title: "Featured Projects",
       viewProject: "View Project",
       keyFeatures: "Key Features",
-      toolsUsed: "Tools Used"
+      toolsUsed: "Tools Used",
+      award: "🌟 WSA 2026 NOMINEE"
+    },
+    awards: {
+      title: "Awards & Recognition",
+      wsa2026: "World Summit Awards 2026 - 24th Edition",
+      wsaCategory: "Category: Business & Commerce",
+      wsaProject: "Nominated Project: salentoalamano.com",
+      wsaDescription: "Nominated as the most innovative digital solution in Business & Commerce in Colombia. Global recognition for developing scalable platforms connecting thousands of tourists with Colombian coffee culture."
     },
     contact: {
       title: "Get in Touch",
