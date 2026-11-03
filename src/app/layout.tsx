@@ -7,8 +7,8 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "David Parra - Cybersecurity Specialist & Full-Stack Developer",
-  description: "Portfolio de David Parra - Especialista en Ciberseguridad y Desarrollador Full-Stack",
+  title: "David Parra - Arquitecto de Seguridad Enterprise | PREMIADO 2026",
+  description: "Desarrollador Full-Stack y Arquitecto de Seguridad Enterprise. GANADOR DEL PREMIO MEJOR PROYECTO DIGITAL COLOMBIA 2026 por salentoalamano.com. 45+ proyectos en GitHub.",
 };
 
 export default function RootLayout({
@@ -26,7 +26,15 @@ export default function RootLayout({
           </div>
           <footer className="bg-gray-50 py-8">
             <div className="container mx-auto px-4 text-center text-gray-600">
-              <p>&copy; 2024 David Parra. Todos los derechos reservados.</p>
+              <p className="mb-2">
+                PREMIADO: <a href="https://www.salentoalamano.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">salentoalamano.com</a>
+                {" | "}
+                <a href="https://quindiotravel.com.co" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">quindiotravel.com.co</a>
+                {" | "}
+                <a href="https://github.com/dphack1987/filandialamano.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">filandialamano.com</a>
+              </p>
+              <p>GitHub: <a href="https://github.com/dphack1987" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">github.com/dphack1987</a> (45+ proyectos)</p>
+              <p className="mt-2">&copy; 2026 David Parra. Arquitecto de Seguridad Enterprise.</p>
             </div>
           </footer>
         </LanguageProvider>

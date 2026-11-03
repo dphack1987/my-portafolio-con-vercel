@@ -5,51 +5,68 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const getSkillCategories = (language: 'en' | 'es') => [
   {
-    title: language === 'es' ? "Competencias Principales" : "Core Competencies",
-    skills: language === 'es' ? [
-      "Scripting",
-      "Seguridad de Redes",
-      "Administración de Sistemas",
-      "Pruebas de Penetración",
-      "Forense Digital",
-      "Resolución de Problemas",
-      "Trabajo en Equipo",
-      "Pensamiento Crítico"
-    ] : [
-      "Scripting",
-      "Network Security",
-      "System Administration",
-      "Penetration Testing",
-      "Digital Forensics",
-      "Problem Solving",
-      "Team Collaboration",
-      "Critical Thinking"
+    title: language === 'es' ? "Arquitectura Enterprise & DevOps" : "Enterprise Architecture & DevOps",
+    skills: [
+      "ELK Stack",
+      "Docker",
+      "Kubernetes",
+      "Apache Kafka",
+      "Redis",
+      "WSL2",
+      "Arquitectura 7 capas"
     ]
   },
   {
-    title: language === 'es' ? "Habilidades Técnicas" : "Technical Skills",
+    title: language === 'es' ? "Security Operations & Ciberseguridad" : "Security Operations & Cybersecurity",
     skills: [
-      "Python",
-      "Java",
-      "JavaScript (ES6+)",
-      "React",
-      "HTML5/CSS3",
-      "API Development",
-      "Git/GitHub",
-      "Linux Systems"
-    ]
-  },
-  {
-    title: language === 'es' ? "Herramientas de Seguridad" : "Security Tools",
-    skills: [
+      "Wazuh SIEM",
+      "TheHive",
+      "Cortex",
+      "MISP",
+      "OpenCTI",
+      "Threat Intelligence",
       "Nmap",
       "Metasploit",
       "Burpsuite",
       "Wireshark",
       "Nessus",
       "Hydra",
-      "Hashcat",
-      "Rootkits"
+      "Hashcat"
+    ]
+  },
+  {
+    title: language === 'es' ? "Machine Learning & AI" : "Machine Learning & AI",
+    skills: [
+      "Jupyter",
+      "MLflow",
+      "TensorFlow",
+      "PyTorch",
+      "Detección de Anomalías",
+      "ML para Seguridad"
+    ]
+  },
+  {
+    title: language === 'es' ? "Desarrollo Web Full-Stack" : "Full-Stack Web Development",
+    skills: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "Java",
+      "Python",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "Vite"
+    ]
+  },
+  {
+    title: language === 'es' ? "SEO & Marketing Digital" : "SEO & Digital Marketing",
+    skills: [
+      "SEO Optimization",
+      "Marketing Digital",
+      "Análisis de Rendimiento Web",
+      "Estrategias de Posicionamiento"
     ]
   },
   {

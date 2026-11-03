@@ -20,12 +20,12 @@ const translations = {
     },
     hero: {
       title: "David Parra",
-      subtitle: "Especialista en Ciberseguridad | Desarrollador Full-Stack | Investigador de Seguridad",
+      subtitle: "Arquitecto de Seguridad Enterprise | Experto SEO | PREMIADO MEJOR PROYECTO DIGITAL COLOMBIA 2026",
       cta: "Conoce más"
     },
     about: {
       title: "Acerca de Mí",
-      description: "Desarrollador Full-Stack y Especialista en Ciberseguridad con experiencia en el desarrollo de aplicaciones seguras y escalables. Especializado en pruebas de penetración, evaluación de vulnerabilidades y desarrollo de aplicaciones seguras."
+      description: "Desarrollador Full-Stack y Arquitecto de Seguridad Enterprise con experiencia demostrada en desarrollo de aplicaciones escalables, SEO avanzado y ciberseguridad a nivel profesional. GANADOR DEL PREMIO MEJOR PROYECTO DIGITAL EN CATEGORÍA COMERCIAL Y DE NEGOCIOS EN COLOMBIA 2026 por salentoalamano.com. Experto en arquitecturas de 7 capas enterprise, ELK Stack, Docker/Kubernetes, Machine Learning para seguridad y desarrollo de frameworks. 45+ proyectos en GitHub."
     },
     skills: {
       title: "Habilidades y Experiencia",

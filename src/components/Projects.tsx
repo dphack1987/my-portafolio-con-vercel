@@ -7,77 +7,162 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const getProjects = (language: 'en' | 'es') => [
   {
     id: 1,
-    title: "Mapa Turístico del Quindío",
-    description: language === 'es' 
-      ? "Plataforma turística completa para la región del Quindío, con mapas interactivos, atracciones turísticas, hoteles y negocios locales."
-      : "A comprehensive tourism platform for the Quindío region, featuring interactive maps, tourist attractions, hotels, and local businesses.",
-    details: language === 'es' 
+    title: language === 'es' ? "Salento a la Mano - PREMIADO" : "Salento a la Mano - AWARD WINNER",
+    description: language === 'es'
+      ? "GANADOR DEL PREMIO MEJOR PROYECTO DIGITAL COLOMBIA 2026 - Categoría Comercial y de Negocios. Plataforma de turismo digital líder con 70+ negocios verificados, guía bilingüe ES/EN y SEO avanzado."
+      : "WINNER OF BEST DIGITAL PROJECT COLOMBIA 2026 - Commercial and Business Category. Leading digital tourism platform with 70+ verified businesses, bilingual guide ES/EN and advanced SEO.",
+    details: language === 'es'
       ? [
-          "Integración de mapas interactivos",
-          "Gestión de paquetes turísticos",
-          "Directorio de negocios integrado",
-          "Diseño responsivo para todos los dispositivos"
+          "PREMIADO Mejor Proyecto Digital Colombia 2026",
+          "70+ negocios integrados verificados",
+          "Guía bilingüe Español/Inglés",
+          "SEO avanzado con posicionamiento orgánico",
+          "545+ commits de desarrollo",
+          "2,500+ palmas de cera protegidas",
+          "15 km de senderos mantenidos"
         ]
       : [
-          "Interactive map integration",
-          "Tourism package management",
-          "Business directory integration",
-          "Responsive design for all devices"
+          "AWARDED Best Digital Project Colombia 2026",
+          "70+ integrated verified businesses",
+          "Bilingual guide Spanish/English",
+          "Advanced SEO with organic positioning",
+          "545+ development commits",
+          "2,500+ wax palms protected",
+          "15 km of maintained trails"
         ],
-    tools: ["React", "Next.js", "Tailwind CSS", "Interactive Maps"],
-    tags: language === 'es' 
-      ? ["Desarrollo Web", "Turismo", "UX/UI"]
-      : ["Web Development", "Tourism", "UX/UI"],
-    link: "https://www.mapaturisticodelquindio.com"
+    tools: ["React", "Next.js", "TypeScript", "SEO", "CI/CD"],
+    tags: language === 'es'
+      ? ["Premiado", "Turismo Digital", "SEO", "React"]
+      : ["Award Winner", "Digital Tourism", "SEO", "React"],
+    link: "https://www.salentoalamano.com"
   },
   {
     id: 2,
-    title: language === 'es' ? "Análisis de Ciberseguridad & Pruebas de Penetración" : "Cybersecurity Analysis & Penetration Testing",
+    title: "Filandia a la Mano",
     description: language === 'es'
-      ? "Experto en evaluación de vulnerabilidades y pruebas de penetración para aplicaciones web, redes y sistemas. Especializado en implementación de protocolos de seguridad y forense digital."
-      : "Expert in vulnerability assessment and penetration testing for web applications, networks, and systems. Specializing in security protocol implementation and digital forensics.",
+      ? "Plataforma de turismo digital para Filandia, Quindío con tecnología moderna, mapa interactivo y SEO optimization."
+      : "Digital tourism platform for Filandia, Quindío with modern technology, interactive map and SEO optimization.",
     details: language === 'es'
       ? [
-          "Implementación de firewalls y sistemas IDS/IPS",
-          "Monitoreo y análisis de seguridad de red",
-          "Evaluación y remediación de vulnerabilidades",
-          "Forense digital y respuesta a incidentes"
+          "Plataforma de turismo digital moderna",
+          "Mapa interactivo avanzado",
+          "SEO optimization",
+          "Integración local de negocios"
         ]
       : [
-          "Implementation of firewalls, IDS/IPS systems",
-          "Network security monitoring and analysis",
-          "Vulnerability assessment and remediation",
-          "Digital forensics and incident response"
+          "Modern digital tourism platform",
+          "Advanced interactive map",
+          "SEO optimization",
+          "Local business integration"
         ],
-    tools: ["Nmap", "Metasploit", "Wireshark", "Burpsuite", "Nessus"],
+    tools: ["TypeScript", "Next.js", "React", "SEO"],
     tags: language === 'es'
-      ? ["Seguridad", "Pruebas de Penetración", "Defensa de Red"]
-      : ["Security", "Penetration Testing", "Network Defense"],
-    link: "https://github.com/dphack1987"
+      ? ["Turismo Digital", "TypeScript", "Next.js"]
+      : ["Digital Tourism", "TypeScript", "Next.js"],
+    link: "https://github.com/dphack1987/filandialamano.com"
   },
   {
     id: 3,
-    title: language === 'es' ? "Herramientas de Seguridad & Automatización" : "Security Tools & Automation",
+    title: "Quindio Travel",
     description: language === 'es'
-      ? "Desarrollo de herramientas de seguridad personalizadas y scripts de automatización para evaluación de vulnerabilidades y fortalecimiento de sistemas."
-      : "Development of custom security tools and automation scripts for vulnerability assessment and system hardening.",
+      ? "Portal de turismo del Quindío con marketing digital y SEO avanzado. Integración de múltiples municipios."
+      : "Quindío tourism portal with digital marketing and advanced SEO. Integration of multiple municipalities.",
     details: language === 'es'
       ? [
-          "Desarrollo de herramientas de seguridad personalizadas",
-          "Automatización de procesos de seguridad",
-          "Scripts de fortalecimiento de sistemas",
-          "Herramientas de cumplimiento de seguridad"
+          "Portal completo de turismo regional",
+          "Marketing digital avanzado",
+          "SEO optimization",
+          "Integración de múltiples municipios"
         ]
       : [
-          "Custom security tool development",
-          "Automation of security processes",
-          "System hardening scripts",
-          "Security compliance tools"
+          "Complete regional tourism portal",
+          "Advanced digital marketing",
+          "SEO optimization",
+          "Multiple municipality integration"
         ],
-    tools: ["Python", "Bash", "Linux", "Security Tools"],
+    tools: ["HTML", "CSS", "JavaScript", "SEO", "Marketing Digital"],
     tags: language === 'es'
-      ? ["Desarrollo de Herramientas", "Automatización", "Seguridad"]
-      : ["Tool Development", "Automation", "Security"],
+      ? ["Turismo", "SEO", "Marketing Digital"]
+      : ["Tourism", "SEO", "Digital Marketing"],
+    link: "https://quindiotravel.com.co"
+  },
+  {
+    id: 4,
+    title: "CyberArma Framework",
+    description: language === 'es'
+      ? "Framework profesional de evaluación de seguridad con integración multi-herramienta enterprise. 1,000+ líneas de código Python."
+      : "Professional security assessment framework with multi-tool enterprise integration. 1,000+ lines of Python code.",
+    details: language === 'es'
+      ? [
+          "1,000+ líneas de código Python",
+          "Integración multi-herramienta",
+          "Framework de seguridad enterprise",
+          "Documentación técnica completa",
+          "100+ herramientas de seguridad"
+        ]
+      : [
+          "1,000+ lines of Python code",
+          "Multi-tool integration",
+          "Enterprise security framework",
+          "Complete technical documentation",
+          "100+ security tools"
+        ],
+    tools: ["Python", "Bash", "Security", "System Integration"],
+    tags: language === 'es'
+      ? ["Ciberseguridad", "Python", "Framework"]
+      : ["Cybersecurity", "Python", "Framework"],
+    link: "https://github.com/dphack1987/weapon"
+  },
+  {
+    id: 5,
+    title: "Antidron System",
+    description: language === 'es'
+      ? "Sistema de detección y neutralización de drones con tecnología avanzada (2026). Aplicaciones en seguridad y defensa."
+      : "Drone detection and neutralization system with advanced technology (2026). Security and defense applications.",
+    details: language === 'es'
+      ? [
+          "Detección de drones",
+          "Neutralización automatizada",
+          "Integración hardware/software",
+          "Tecnología de seguridad avanzada"
+        ]
+      : [
+          "Drone detection",
+          "Automated neutralization",
+          "Hardware/software integration",
+          "Advanced security technology"
+        ],
+    tools: ["Electrónica", "Software", "Python", "Hardware"],
+    tags: language === 'es'
+      ? ["Seguridad", "Electrónica", "Hardware"]
+      : ["Security", "Electronics", "Hardware"],
+    link: "https://github.com/dphack1987/antidron"
+  },
+  {
+    id: 6,
+    title: language === 'es' ? "Arquitectura Enterprise Security" : "Enterprise Security Architecture",
+    description: language === 'es'
+      ? "Sistema distribuido de alto rendimiento para 1000+ objetivos con ML y threat intelligence. Arquitectura de 7 capas."
+      : "High-performance distributed system for 1000+ targets with ML and threat intelligence. 7-layer architecture.",
+    details: language === 'es'
+      ? [
+          "Arquitectura de 7 capas enterprise",
+          "ELK Stack, Docker, Kubernetes",
+          "Apache Kafka, Redis",
+          "Machine Learning para seguridad",
+          "1000+ objetivos simultáneos"
+        ]
+      : [
+          "7-layer enterprise architecture",
+          "ELK Stack, Docker, Kubernetes",
+          "Apache Kafka, Redis",
+          "Machine Learning for security",
+          "1000+ simultaneous targets"
+        ],
+    tools: ["ELK Stack", "Docker", "Kubernetes", "Kafka", "Redis", "ML"],
+    tags: language === 'es'
+      ? ["Arquitectura", "DevOps", "ML", "Security"]
+      : ["Architecture", "DevOps", "ML", "Security"],
     link: "https://github.com/dphack1987"
   }
 ];
