@@ -3,6 +3,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Image from "next/image";
 
 const getProjects = (language: 'en' | 'es') => [
   {
@@ -35,7 +36,8 @@ const getProjects = (language: 'en' | 'es') => [
       ? ["WSA 2026 NOMINADO", "Turismo Digital", "SEO", "React"]
       : ["WSA 2026 NOMINEE", "Digital Tourism", "SEO", "React"],
     link: "https://www.salentoalamano.com",
-    award: true
+    award: true,
+    image: "https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   {
     id: 2,
@@ -63,7 +65,8 @@ const getProjects = (language: 'en' | 'es') => [
       ? ["En Construcción", "Turismo Digital", "TypeScript"]
       : ["Under Construction", "Digital Tourism", "TypeScript"],
     link: "https://github.com/dphack1987/filandialamano.com",
-    construction: true
+    construction: true,
+    image: "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   {
     id: 3,
@@ -88,7 +91,8 @@ const getProjects = (language: 'en' | 'es') => [
     tags: language === 'es'
       ? ["Turismo", "SEO", "Marketing Digital"]
       : ["Tourism", "SEO", "Digital Marketing"],
-    link: "https://quindiotravel.com.co"
+    link: "https://quindiotravel.com.co",
+    image: "https://images.pexels.com/photos/322800/pexels-photo-322800.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   {
     id: 4,
@@ -115,7 +119,8 @@ const getProjects = (language: 'en' | 'es') => [
     tags: language === 'es'
       ? ["Ciberseguridad", "Python", "Framework"]
       : ["Cybersecurity", "Python", "Framework"],
-    link: "https://github.com/dphack1987/weapon"
+    link: "https://github.com/dphack1987/weapon",
+    image: "https://images.pexels.com/photos/5380666/pexels-photo-5380666.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   {
     id: 5,
@@ -140,7 +145,8 @@ const getProjects = (language: 'en' | 'es') => [
     tags: language === 'es'
       ? ["Seguridad", "Electrónica", "Hardware"]
       : ["Security", "Electronics", "Hardware"],
-    link: "https://github.com/dphack1987/antidron"
+    link: "https://github.com/dphack1987/antidron",
+    image: "https://images.pexels.com/photos/2589256/pexels-photo-2589256.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   {
     id: 6,
@@ -167,7 +173,64 @@ const getProjects = (language: 'en' | 'es') => [
     tags: language === 'es'
       ? ["Arquitectura", "DevOps", "ML", "Security"]
       : ["Architecture", "DevOps", "ML", "Security"],
-    link: "https://github.com/dphack1987"
+    link: "https://github.com/dphack1987",
+    image: "https://images.pexels.com/photos/1555922/pexels-photo-1555922.jpeg?auto=compress&cs=tinysrgb&w=800"
+  },
+  {
+    id: 7,
+    title: "ApexStrike",
+    description: language === 'es'
+      ? "Herramienta de pentesting para evaluación de vulnerabilidades en aplicaciones web. Análisis automatizado de seguridad."
+      : "Penetration testing tool for web application vulnerability assessment. Automated security analysis.",
+    details: language === 'es'
+      ? [
+          "Análisis automatizado de vulnerabilidades",
+          "Evaluación de seguridad web",
+          "Reportes detallados de hallazgos",
+          "Integración con herramientas de seguridad",
+          "Testing de autenticación y autorización"
+        ]
+      : [
+          "Automated vulnerability analysis",
+          "Web security assessment",
+          "Detailed finding reports",
+          "Security tool integration",
+          "Authentication and authorization testing"
+        ],
+    tools: ["TypeScript", "Security", "Web Testing", "Penetration Testing"],
+    tags: language === 'es'
+      ? ["Pentesting", "Seguridad Web", "TypeScript"]
+      : ["Pentesting", "Web Security", "TypeScript"],
+    link: "https://github.com/dphack1987/ApexStrike",
+    image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800"
+  },
+  {
+    id: 8,
+    title: "Zenythos Sword",
+    description: language === 'es'
+      ? "Framework de seguridad para análisis y mitigación de amenazas. Herramientas avanzadas de monitoreo y respuesta."
+      : "Security framework for threat analysis and mitigation. Advanced monitoring and response tools.",
+    details: language === 'es'
+      ? [
+          "Análisis de amenazas en tiempo real",
+          "Mitigación automatizada de riesgos",
+          "Monitoreo de actividad sospechosa",
+          "Integración con SIEM",
+          "Alertas inteligentes"
+        ]
+      : [
+          "Real-time threat analysis",
+          "Automated risk mitigation",
+          "Suspicious activity monitoring",
+          "SIEM integration",
+          "Intelligent alerts"
+        ],
+    tools: ["Python", "Security", "Threat Analysis", "Monitoring"],
+    tags: language === 'es'
+      ? ["Seguridad", "Threat Analysis", "Python"]
+      : ["Security", "Threat Analysis", "Python"],
+    link: "https://github.com/dphack1987/zenythos-sword",
+    image: "https://images.pexels.com/photos/106344/pexels-photo-106344.jpeg?auto=compress&cs=tinysrgb&w=800"
   }
 ];
 
@@ -182,6 +245,16 @@ export default function Projects() {
           {projects.map((project) => (
             <Card key={project.id} className={`p-6 hover:shadow-lg transition-shadow duration-300 ${project.award ? 'border-4 border-yellow-400' : ''} ${project.construction ? 'border-4 border-gray-400' : ''}`}>
               <div className="flex flex-col h-full">
+                {project.image && (
+                  <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                )}
                 {project.award && (
                   <div className="mb-3">
                     <span className="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-3 py-1 rounded-full text-xs font-bold">

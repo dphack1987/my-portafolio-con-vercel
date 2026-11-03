@@ -21,7 +21,7 @@ const translations = {
     },
     hero: {
       title: "David Parra",
-      subtitle: "NOMINADO WSA 2026 | Arquitecto de Seguridad Enterprise | Desarrollador Full-Stack",
+      subtitle: "NOMINADO World Summit Awards 2026 | Arquitecto de Seguridad Enterprise | Desarrollador Full-Stack",
       award: "🌟 NOMINADO: World Summit Awards 2026 - Categoría Negocios y Comercio",
       cta: "Ver Mis Proyectos"
     },
@@ -74,7 +74,7 @@ const translations = {
     },
     hero: {
       title: "David Parra",
-      subtitle: "WSA 2026 NOMINEE | Enterprise Security Architect | Full-Stack Developer",
+      subtitle: "World Summit Awards 2026 NOMINEE | Enterprise Security Architect | Full-Stack Developer",
       award: "🌟 NOMINEE: World Summit Awards 2026 - Business & Commerce Category",
       cta: "View My Projects"
     },
