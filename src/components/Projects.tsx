@@ -36,8 +36,7 @@ const getProjects = (language: 'en' | 'es'): Project[] => [
           "📴 Modo offline total para Valle de Cocora (PWA)",
           "💬 Pedidos directos por WhatsApp + reseñas",
           "🌍 6 idiomas y multi-moneda (COP/USD/EUR)",
-          "🛡️ SEO defensivo contra desinformación",
-          "⚡ Despliegue continuo en Vercel"
+          "🛡️ SEO defensivo contra desinformación"
         ]
       : [
           "🏆 WSA 2026 NOMINEE",
@@ -45,8 +44,7 @@ const getProjects = (language: 'en' | 'es'): Project[] => [
           "📴 Full offline mode for Valle de Cocora (PWA)",
           "💬 Direct WhatsApp ordering + reviews",
           "🌍 6 languages and multi-currency (COP/USD/EUR)",
-          "🛡️ Defensive SEO against disinformation",
-          "⚡ Continuous deployment on Vercel"
+          "🛡️ Defensive SEO against disinformation"
         ],
     tools: ["React 18", "Vite", "TypeScript", "Leaflet", "PWA", "SEO"],
     tags: language === 'es'
@@ -71,7 +69,6 @@ const getProjects = (language: 'en' | 'es'): Project[] => [
           "⚡ Core Web Vitals optimizados",
           "💰 Motor de cotización con tarifas en JSON",
           "🤖 Chatbot IA 'Don Chucho' con fallback local",
-          "🚀 Deploy automático GitHub Actions → GitHub Pages",
           "🖼️ 480 imágenes optimizadas"
         ]
       : [
@@ -80,7 +77,6 @@ const getProjects = (language: 'en' | 'es'): Project[] => [
           "⚡ Optimized Core Web Vitals",
           "💰 Quote engine with JSON pricing",
           "🤖 'Don Chucho' AI chatbot with local fallback",
-          "🚀 GitHub Actions → GitHub Pages auto deploy",
           "🖼️ 480 optimized images"
         ],
     tools: ["HTML5", "CSS3", "JavaScript", "Schema.org", "GitHub Actions", "SEO"],
@@ -93,15 +89,15 @@ const getProjects = (language: 'en' | 'es'): Project[] => [
     id: 3,
     title: language === 'es' ? "Mapa Turístico del Quindío" : "Quindío Tourist Map",
     description: language === 'es'
-      ? "Plataforma programática que genera cientos de páginas turísticas por municipio con scripts Node: validación de datos maestros, generación de GeoJSON, sitemaps y verificación automática de canonicals. Arquitectura de internal linking documentada y headers de seguridad HSTS en Vercel."
-      : "Programmatic platform generating hundreds of municipality tourism pages via Node scripts: master data validation, GeoJSON generation, sitemaps and automatic canonical verification. Documented internal linking architecture and HSTS security headers on Vercel.",
+      ? "Plataforma programática que genera cientos de páginas turísticas por municipio con scripts Node: validación de datos maestros, generación de GeoJSON, sitemaps y verificación automática de canonicals. Arquitectura de internal linking documentada y headers de seguridad HSTS."
+      : "Programmatic platform generating hundreds of municipality tourism pages via Node scripts: master data validation, GeoJSON generation, sitemaps and automatic canonical verification. Documented internal linking architecture and HSTS security headers.",
     details: language === 'es'
       ? [
           "⚙️ Generador programático de páginas (pSEO)",
           "🗺️ GeoJSON + sitemaps generados por script",
           "✅ Validación de datos y canonicals automatizada",
           "🔗 Arquitectura de internal linking documentada",
-          "🔒 HSTS + X-Content-Type-Options en Vercel",
+          "🔒 Headers de seguridad HSTS + X-Content-Type-Options",
           "📄 Informes técnicos de SEO y diagnóstico GSC"
         ]
       : [
@@ -109,10 +105,10 @@ const getProjects = (language: 'en' | 'es'): Project[] => [
           "🗺️ Script-generated GeoJSON + sitemaps",
           "✅ Automated data and canonical validation",
           "🔗 Documented internal linking architecture",
-          "🔒 HSTS + X-Content-Type-Options on Vercel",
+          "🔒 HSTS + X-Content-Type-Options security headers",
           "📄 Technical SEO and GSC diagnostic reports"
         ],
-    tools: ["Node.js", "JavaScript", "GeoJSON", "SEO Técnico", "Vercel", "Scripts"],
+    tools: ["Node.js", "JavaScript", "GeoJSON", "SEO Técnico", "Scripts"],
     tags: language === 'es'
       ? ["pSEO", "Arquitectura", "Automatización", "SEO"]
       : ["pSEO", "Architecture", "Automation", "SEO"],
