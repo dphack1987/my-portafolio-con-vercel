@@ -17,7 +17,6 @@ type Project = {
   link2Label?: string;
   award?: boolean;
   featured?: boolean;
-  construction?: boolean;
   image?: string;
   imageAlt?: string;
 };
@@ -232,35 +231,6 @@ const getProjects = (language: 'en' | 'es'): Project[] => [
       : ["Defense", "Threat Intel", "SIEM", "ML"],
     link: "https://github.com/dphack1987/zenythos-sword",
   },
-  {
-    id: 8,
-    title: language === 'es' ? "Antidron System - Detección y Neutralización" : "Antidron System - Detection & Neutralization",
-    description: language === 'es'
-      ? "Sistema de detección y neutralización de drones: integración hardware/software con microcontroladores, sensores electrónicos y comunicación RF. Desarrollo en Python para control de sensores y actuadores, con aplicaciones en seguridad física y defensa. Investigación activa (última actualización 2026)."
-      : "Drone detection and neutralization system: hardware/software integration with microcontrollers, electronic sensors and RF communication. Python development for sensor and actuator control, with physical security and defense applications. Active research (last update 2026).",
-    details: language === 'es'
-      ? [
-          "🎯 Detección y tracking de drones en tiempo real",
-          "⚡ Neutralización automatizada con señales RF",
-          "🔌 Integración hardware/software con microcontroladores",
-          "🐍 Python para control de sensores y actuadores",
-          "📡 Comunicación RF y protocolos inalámbricos",
-          "🛡️ Aplicaciones en seguridad física y defensa"
-        ]
-      : [
-          "🎯 Real-time drone detection and tracking",
-          "⚡ Automated neutralization with RF signals",
-          "🔌 Hardware/software integration with microcontrollers",
-          "🐍 Python for sensor and actuator control",
-          "📡 RF communication and wireless protocols",
-          "🛡️ Physical security and defense applications"
-        ],
-    tools: ["Python", "Electronics", "Microcontrollers", "RF Systems", "IoT", "Sensors"],
-    tags: language === 'es'
-      ? ["IoT", "Hardware", "Python", "Seguridad Física"]
-      : ["IoT", "Hardware", "Python", "Physical Security"],
-    link: "https://github.com/dphack1987/antidron",
-  },
 ];
 
 export default function Projects() {
@@ -294,7 +264,7 @@ export default function Projects() {
                   : project.award
                     ? 'border-[#ffd400]'
                     : 'border-zinc-800 hover:border-[#ffd400]'
-              } ${project.construction ? 'border-zinc-700 opacity-90' : ''}`}
+              }`}
             >
               {project.image && (
                 <div
@@ -322,11 +292,6 @@ export default function Projects() {
                 {project.award && !project.featured && (
                   <span className="border border-[#ffd400] px-3 py-1 font-mono text-[11px] font-black uppercase tracking-widest text-[#ffd400]">
                     {t('projects.award')}
-                  </span>
-                )}
-                {project.construction && (
-                  <span className="border border-zinc-600 px-3 py-1 font-mono text-[11px] font-black uppercase tracking-widest text-zinc-400">
-                    🚧 {language === 'es' ? 'En Construcción' : 'Under Construction'}
                   </span>
                 )}
               </div>

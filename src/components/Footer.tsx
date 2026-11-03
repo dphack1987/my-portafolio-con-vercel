@@ -29,15 +29,6 @@ export default function Footer() {
           >
             quindiotravel.com.co
           </a>
-          <span className="text-zinc-700">/</span>
-          <a
-            href="https://github.com/dphack1987/filandialamano.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-zinc-300 underline decoration-[#ffd400] decoration-2 underline-offset-4 transition-colors hover:text-[#ffd400]"
-          >
-            filandialamano.com
-          </a>
         </p>
         <p className="mb-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
           <a
