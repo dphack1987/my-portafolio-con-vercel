@@ -311,7 +311,7 @@ export default function Projects() {
                 </div>
               )}
 
-              <div className="mb-2 flex flex-wrap gap-2">
+              <div className="mb-1.5 flex flex-wrap gap-2">
                 {project.featured && (
                   <span className="bg-[#ffd400] px-3 py-1 font-mono text-[11px] font-black uppercase tracking-widest text-black">
                     {t('projects.star')}
@@ -337,16 +337,16 @@ export default function Projects() {
                 {project.title}
               </h3>
 
-              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+              <p className="mt-1.5 text-sm leading-relaxed text-zinc-400">
                 {project.description}
               </p>
 
-              <div className="mt-auto space-y-3 pt-4">
+              <div className="mt-auto space-y-2.5 pt-3">
                 <div>
-                  <h4 className="mb-1.5 font-mono text-[11px] font-bold uppercase tracking-widest text-[#ffd400]">
+                  <h4 className="mb-1 font-mono text-[11px] font-bold uppercase tracking-widest text-[#ffd400]">
                     {t('projects.keyFeatures')}
                   </h4>
-                  <ul className="space-y-0.5 text-sm text-zinc-400">
+                  <ul className="space-y-0.25 text-sm text-zinc-400">
                     {project.details.map((detail, index) => (
                       <li key={index} className="flex gap-2">
                         <span className="text-[#ffd400]">▸</span>
@@ -357,7 +357,7 @@ export default function Projects() {
                 </div>
 
                 <div>
-                  <h4 className="mb-1.5 font-mono text-[11px] font-bold uppercase tracking-widest text-[#ffd400]">
+                  <h4 className="mb-1 font-mono text-[11px] font-bold uppercase tracking-widest text-[#ffd400]">
                     {t('projects.toolsUsed')}
                   </h4>
                   <div className="flex flex-wrap gap-2">
@@ -383,7 +383,7 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <Button
                     asChild
                     className="h-12 w-full rounded-none border-2 border-[#ffd400] bg-transparent text-xs font-black uppercase tracking-widest text-[#ffd400] transition-all hover:bg-[#ffd400] hover:text-black focus:outline-none focus:ring-2 focus:ring-[#ffd400] focus:ring-offset-2 focus:ring-offset-black"
